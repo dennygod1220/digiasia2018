@@ -18,9 +18,12 @@
 
 <body>
     <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">首頁</a>
+        </nav>
         <div class="card" style="height: 300px;overflow-y: scroll;">
             <ul class="list-group list-group-flush">
-            <?php
+                <?php
                 $fileData = file_get_contents("Demo.txt");
                 echo $fileData;
             ?>

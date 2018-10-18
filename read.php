@@ -18,7 +18,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="card">
+        <div class="card" style="height: 300px;overflow-y: scroll;">
             <ul class="list-group list-group-flush">
             <?php
                 $fileData = file_get_contents("Demo.txt");

@@ -18,7 +18,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="card" style="width: 18rem;">
+        <div class="card">
             <ul class="list-group list-group-flush">
             <?php
                 $fileData = file_get_contents("Demo.txt");

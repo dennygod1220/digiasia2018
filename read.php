@@ -17,10 +17,11 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed;margin-top: 0px;width: 100%;z-index: 999999999999999;">
+        <a class="navbar-brand" href="#">首頁</a>
+    </nav>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">首頁</a>
-        </nav>
+        
         <div class="card" style="height: 300px;overflow-y: scroll;">
             <ul class="list-group list-group-flush">
                 <?php

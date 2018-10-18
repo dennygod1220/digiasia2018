@@ -8,7 +8,7 @@ $decode = json_decode($json, true);
 foreach ($decode["channel"]["item"] as $value) {
     //判斷是否存在
     if (isset($value["title"])) {
-        $StrConents = $StrConents."<a target='_blank' href='" . $value["link"] . "' class='btn btn-outline-success'>" . $value["title"] . "</a><br>";
+        $StrConents = $StrConents."<li class='list-group-item'><a target='_blank' href='" . $value["link"] . "' class='btn btn-outline-success'>" . $value["title"] . "</a></li>";
     }
 }
 

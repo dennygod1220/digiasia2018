@@ -17,11 +17,16 @@
 </head>
 
 <body>
-    <div>
-    <?php
-        $fileData = file_get_contents("Demo.txt");
-        echo "<h1>".$fileData."</h1>";
-    ?>
+    <div class="container-fluid">
+        <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+            <?php
+                $fileData = file_get_contents("Demo.txt");
+                echo $fileData;
+            ?>
+            </ul>
+        </div>
+
     </div>
 </body>
 

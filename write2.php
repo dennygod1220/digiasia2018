@@ -22,7 +22,8 @@ if (($TxtRes = fopen($TxtFileName, "w ")) === false) {
 echo ("建立可寫檔案" . $TxtFileName . "成功！</br>");
 
 //要 寫進檔案的內容
-if (!fwrite($TxtRes, $StrConents)) { //將資訊寫入檔案
+if (!fwrite($TxtRes, $StrConents)) { 
+    //將資訊寫入檔案
     echo ("嘗試向檔案" . $TxtFileName . "寫入" . $StrConents . "失敗！");
     fclose($TxtRes);
     exit();

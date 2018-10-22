@@ -24,10 +24,11 @@
         </nav>
         <div style="height:100px"></div>
 
+        <div class="card-header">
+            USA - Voice of America
+        </div>
         <div class="card" style="height: 300px;overflow-y: scroll;">
-            <div class="card-header">
-                USA - Voice of America
-            </div>
+
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <?php

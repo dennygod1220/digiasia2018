@@ -13,7 +13,8 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script src="./index.js"></script>
+    <title>爬蟲展示頁</title>
 </head>
 
 <body>
@@ -30,7 +31,7 @@
         <div class="card" style="height: 300px;overflow-y: scroll;">
 
             <div class="card-body">
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush" id="USA_V">
                     <?php
                         //取檔案
                         $fileData = file_get_contents("Demo.txt");

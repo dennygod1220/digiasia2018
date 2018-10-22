@@ -23,12 +23,16 @@
             <a class="navbar-brand" href="#">首頁</a>
         </nav>
         <div style="height:100px"></div>
+        <div class="row">
+            <h3>USA - Voice of America</h3>
+        </div>
         <div class="card" style="height: 300px;overflow-y: scroll;">
             <ul class="list-group list-group-flush">
                 <?php
+                //取檔案
                 $fileData = file_get_contents("Demo.txt");
                 echo $fileData;
-            ?>
+                ?>
             </ul>
         </div>
 

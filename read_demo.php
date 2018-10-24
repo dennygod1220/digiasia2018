@@ -75,7 +75,7 @@
         $(function () {
             $(".udnbtn").click(function () {
                 var url = this.innerText;
-                $.getJSON('http://events.clickforce.com.tw/digiasia2018/' + url, function (data) {
+                $.getJSON('https://events.clickforce.com.tw/digiasia2018/' + url, function (data) {
                     $("#content").text = "";
                     $("#content").text(data.content);
                     $("#keyword").text = "";

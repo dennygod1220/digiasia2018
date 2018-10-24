@@ -32,10 +32,10 @@
             <div class="card-body">
                 <ul class="list-group list-group-flush" id="USA_V">
                     <?php
-                        $json_file = 'UDN/*.json';
+                        $json_file = 'UDN_S/*.json';
                         $file_ar = glob($json_file);
                         foreach($file_ar as $val){
-                            echo "<div class='btn btn-outline-success udnbtn'>".$val."</div>";
+                            echo "<div class='btn btn-outline-success udnbtn'>".urldecode($val)."</div>";
                         }
                     ?>
 
@@ -71,12 +71,11 @@
 
 
     </div>
-
-    <script>
+<script>
         $(function () {
             $(".udnbtn").click(function () {
                 var url = this.innerText;
-                $.getJSON('https://events.clickforce.com.tw/digiasia2018/' + url, function (data) {
+                $.getJSON('http://localhost:8888/digiasia2018/' + url, function (data) {
                     $("#content").text = "";
                     $("#content").text(data.content);
                     $("#keyword").text = "";

@@ -9,26 +9,45 @@ $decode = json_decode($json, true);
 // var_dump($decode["channel"]["item"][0]["title"])
 $temp = [];
 $c = 0;
+
+//////刪除目錄下原有的檔案///////
+$dir = glob('UDN_S/*.json'); //
+foreach ($dir as $val) {     //
+    unlink($val);            //
+}                            //
+///////////////////////////////
+
+// $tit = utf8_encode($decode["channel"]["item"][0]['title']);
+// echo $tit ."<br>";
+
+// echo utf8_decode($tit)."<br>";
+
+for($i=0;$i<2;$i++){
+    echo $decode["channel"]["item"][$i]['title']."____".$decode["channel"]["item"][$i]['link']."<br>";
+
+}
+echo "<hr>";
 //抓取title
 foreach ($decode["channel"]["item"] as $value) {
     //判斷是否存在
     if (isset($value["title"])) {
 
             try{
-                $ch = curl_init();
+                // $ch = curl_init();
+                echo $value['link'].'<br>';
+                // curl_setopt($ch,CURLOPT_URL,"http://35.234.18.81/udn?url=".$value["link"]);
+                // curl_setopt($ch,CURLOPT_HEADER,false);
+                // curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+                // curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 60); 
+                // $res = curl_exec($ch);
+                // //取得http 狀態碼 
+                // $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                // if (curl_errno($ch) == 28) {
+                //     echo "Timeout";
+                // }
+                // var_dump($httpCode) ;
+                // var_dump($res);
 
-                curl_setopt($ch,CURLOPT_URL,"http://35.234.18.81/udn?url=".$value["link"]);
-                curl_setopt($ch,CURLOPT_HEADER,false);
-                curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 60); 
-                $res = curl_exec($ch);
-                //取得http 狀態碼 
-                $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-                if (curl_errno($ch) == 28) {
-                    echo "Timeout";
-                }
-                var_dump($httpCode) ;
-                var_dump($res);
             }catch(Exception $e){
                 echo "ERROR: " .$e->getMessage();
             }
@@ -39,7 +58,7 @@ foreach ($decode["channel"]["item"] as $value) {
         // curl_close($ch);
 
         // //要建立的檔案
-        // $TxtFileName ="UDN/".$c.".json";
+        // $TxtFileName ="UDN_S/".$c.".json";
         // //以讀寫方式打寫指定檔案，如果檔案不存則建立
         // if (($TxtRes = fopen($TxtFileName, "w ")) === false) {
         //     echo ("建立可寫檔案：" . $TxtFileName . "失敗");
@@ -59,9 +78,10 @@ foreach ($decode["channel"]["item"] as $value) {
         $c++;
     }
 }
-var_dump($temp);
 
-
+foreach ($decode["channel"]["item"] as $value) {
+    echo $value['title']."<br>";
+}
 
 // $ch = curl_init();
 

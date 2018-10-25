@@ -16,7 +16,6 @@ foreach ($dir as $val) {     //
 
 ///////////////////////////////將xml link 取出後 呼叫儲存文章API //////////////////////////////////////////////////////////////////////
 for($i=0;$i<2;$i++){
-    echo $decode["channel"]["item"][$i]['title']."____".$decode["channel"]["item"][$i]['link']."<br>";
     if (isset($decode["channel"]["item"][$i]["title"])) {
                     $ch = curl_init();
                     curl_setopt($ch,CURLOPT_URL,"http://35.234.18.81/udn?url=".$decode["channel"]["item"][$i]["link"]);
@@ -37,7 +36,6 @@ for($i=0;$i<2;$i++){
 
 ///////////////////////////////xml 解析後 呼叫關鍵字API 將response存起來 //////////////////////////////////////////////////////////////////
 for($i=0;$i<2;$i++){
-    echo $decode["channel"]["item"][$i]['title']."____".$decode["channel"]["item"][$i]['link']."<br>";
     if (isset($decode["channel"]["item"][$i]["title"])) {
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL,"http://35.234.18.81/result/udn?url=".$decode["channel"]["item"][$i]["link"]);

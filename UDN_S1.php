@@ -9,13 +9,11 @@ $decode = json_decode($json, true);
 
 //////刪除目錄下原有的檔案///////
 $dir = glob('UDN_S/*.json'); //
-foreach ($dir as $val) {     //
-    unlink($val);            //
-}                            //
+                             //
 ///////////////////////////////
 
 ///////////////////////////////將xml link 取出後 呼叫儲存文章API //////////////////////////////////////////////////////////////////////
-for($i=0;$i<2;$i++){
+for($i=0;$i<count($decode["channel"]["item"]);$i++){
     if (isset($decode["channel"]["item"][$i]["title"])) {
                     $ch = curl_init();
                     curl_setopt($ch,CURLOPT_URL,"http://35.234.18.81/udn?url=".$decode["channel"]["item"][$i]["link"]);
@@ -23,19 +21,19 @@ for($i=0;$i<2;$i++){
                     curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
                     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 60); 
                     $res = curl_exec($ch);
+                    echo "儲存: " . $decode['channel']['item'][$i]['link'] ."  ||  " .$res ."<br>";
                     //取得http 狀態碼 
                     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                     if (curl_errno($ch) == 28) {
                         echo "Timeout";
                     }
                     curl_close($ch);
-
             }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////xml 解析後 呼叫關鍵字API 將response存起來 //////////////////////////////////////////////////////////////////
-for($i=0;$i<2;$i++){
+for($i=0;$i<count($decode["channel"]["item"]);$i++){
     if (isset($decode["channel"]["item"][$i]["title"])) {
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL,"http://35.234.18.81/result/udn?url=".$decode["channel"]["item"][$i]["link"]);
@@ -49,6 +47,8 @@ for($i=0;$i<2;$i++){
             echo "Timeout";
         }
         curl_close($ch);
+        $title = $decode["channel"]["item"][$i]["title"];
+        
         //要建立的檔案
         $TxtFileName ="UDN_S/".$decode["channel"]["item"][$i]["title"].".json";
         //以讀寫方式打寫指定檔案，如果檔案不存則建立
@@ -70,7 +70,9 @@ for($i=0;$i<2;$i++){
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+foreach ($dir as $val) {     
+    unlink($val);            
+}     
 
 ?>

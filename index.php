@@ -22,6 +22,7 @@
         }
 
         body {
+            height:100%;
             margin: 0px;
             background: url("img/index/BG.jpg") center center fixed no-repeat;
             /* background-size: cover; */

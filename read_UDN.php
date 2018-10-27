@@ -15,11 +15,28 @@
     <script src="./index.js"></script>
     <title>爬蟲展示頁</title>
     <style>
-        * {
+        p,
+        h4,
+        span {
+            font-family: Microsoft JhengHei;
+            margin: 0px;
+            letter-spacing: 1px;
+        }
+        p{
+            font-size:4vmin;
+        }
+        *,
+        .col-5,
+        .col-2 {
             padding: 0px;
         }
 
+        html {
+            height: 100%;
+        }
+
         body {
+            height: 100%;
             margin: 0px;
             background: url("img/index/BG.jpg") center center fixed no-repeat;
             /* background-size: cover; */
@@ -37,7 +54,24 @@
         .nopad {
             padding: 0px;
         }
+
+        .yspan {
+            margin-right: 3px;
+            color: yellow;
+            font-style: italic;
+            font-weight: bold;
+        }
     </style>
+    <script>
+        $(function () {
+            //讓那該死的按鈕可以漂亮點
+            var menu_H = $("#menu").css("height");            
+            var menu_H_num = parseInt(menu_H.replace('px', ''));
+            $("#iconF").css('right', menu_H_num - 10 + 5 + 5);
+            $("#iconF").css('top', 5);
+            $("#iconY").css('top', 5);
+        })
+    </script>
 </head>
 
 <body style="background-color:black">
@@ -45,13 +79,45 @@
         <a href="./index.php">
             <img src="./img/MENU_noimg.png" class="img-fluid" id="menu">
         </a>
-        <img src="./img/index/facebook (1).png" class="img-fluid" style="position: absolute;right: 50px;top: 8px; width:40px">
-        <img src="./img/index/youtube (2).png" class="img-fluid" style="position: absolute;right: 5px;top: 8px; width:40px">
+        <img src="./img/index/facebook (1).png" class="img-fluid" id="iconF" style="position: absolute;right: 50px;top: 8px;width: 13vmin;">
+        <img src="./img/index/youtube (2).png" class="img-fluid" id="iconY" style="position: absolute;right: 5px;top: 8px;width: 13vmin;">
 
     </div>
     <div class="container-fluid">
+        <div class="row" style="height:25px;"></div>
+        <div class="row">
+            <div class="col-5"></div>
+            <div class="col-2">
+                <img src="./img/內頁/金幣.png" class="img-fluid">
+            </div>
+            <div class="col-5"></div>
+        </div>
+        <div class="row" style="text-align:center;margin-top:5px">
+            <div class="col">
+                <h4 style="color:white">語意分析說明</h4>
+            </div>
+        </div>
+        <div class="row" style="text-align:center;margin-top: 5px;">
+            <div class="col">
+                <p style="color:white;">知道一篇文章有多少<span class="yspan">關鍵訊息</span>嗎？</p>
+            </div>
+        </div>
+        <div class="row" style="text-align:center;">
+            <div class="col">
+                <p style="color:white"><span class="yspan">語意分析</span>讓你快速瞭解文章要點，</p>
+            </div>
+        </div>
+        <div class="row" style="text-align:center;">
+            <div class="col">
+                <p style="color:white">掌握<span class="yspan">市場趨勢</span>與消費者<span class="yspan">潛在需求</span>。</p>
+            </div>
+        </div>
 
-        <div style="height:100px"></div>
+        <div class="row" style="text-align:center;margin-top:15px">
+            <div class="col">
+                <img src="./img/內頁/START.gif" style="width: 50px;" class="img-fluid">
+            </div>
+        </div>
 
         <div class="card-header">
             測試連結區域

@@ -20,11 +20,13 @@
         * {
             padding: 0px;
         }
-        html{
-            height:100%;
+
+        html {
+            height: 100%;
         }
+
         body {
-            height:100%;
+            height: 100%;
             margin: 0px;
             background: url("img/index/BG.jpg") center center fixed no-repeat;
             /* background-size: cover; */
@@ -43,6 +45,16 @@
             padding: 0px;
         }
     </style>
+    <script>
+        $(function () {
+            //讓那該死的按鈕可以漂亮點
+            var menu_H = $("#menu").css("height");            
+            var menu_H_num = parseInt(menu_H.replace('px', ''));
+            $("#iconF").css('right', menu_H_num - 10 + 5 + 5);
+            $("#iconF").css('top', 5);
+            $("#iconY").css('top', 5);
+        })
+    </script>
 </head>
 
 <body style="background-color:black">
@@ -50,8 +62,8 @@
         <a href="./index.php">
             <img src="./img/MENU_noimg.png" class="img-fluid" id="menu">
         </a>
-        <img src="./img/index/facebook (1).png" class="img-fluid" style="position: absolute;right: 50px;top: 8px; width:40px">
-        <img src="./img/index/youtube (2).png" class="img-fluid" style="position: absolute;right: 5px;top: 8px; width:40px">
+        <img src="./img/index/facebook (1).png" class="img-fluid" id="iconF" style="position: absolute;right: 50px;top: 8px;width: 13vmin;">
+        <img src="./img/index/youtube (2).png" class="img-fluid" id="iconY" style="position: absolute;right: 5px;top: 8px;width: 13vmin;">
 
     </div>
 
@@ -91,12 +103,12 @@
     </div>
 
     <script>
-        $(function(){
-            $("#pwa").on('touchstart',function(){
-                $("#pwa").attr('src','./img/index/powerwordB.png');
+        $(function () {
+            $("#pwa").on('touchstart', function () {
+                $("#pwa").attr('src', './img/index/powerwordB.png');
             });
-            $("#pwa").on('touchend',function(){
-                $("#pwa").attr('src','./img/index/powerwordA.png');
+            $("#pwa").on('touchend', function () {
+                $("#pwa").attr('src', './img/index/powerwordA.png');
             })
         })
     </script>

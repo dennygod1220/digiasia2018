@@ -38,6 +38,16 @@
             padding: 0px;
         }
     </style>
+    <script>
+        $(function () {
+            //讓那該死的按鈕可以漂亮點
+            var menu_H = $("#menu").css("height");            
+            var menu_H_num = parseInt(menu_H.replace('px', ''));
+            $("#iconF").css('right', menu_H_num - 10 + 5 + 5);
+            $("#iconF").css('top', 5);
+            $("#iconY").css('top', 5);
+        })
+    </script>
 </head>
 
 <body style="background-color:black">
@@ -45,8 +55,8 @@
         <a href="./index.php">
             <img src="./img/MENU_noimg.png" class="img-fluid" id="menu">
         </a>
-        <img src="./img/index/facebook (1).png" class="img-fluid" style="position: absolute;right: 50px;top: 8px; width:40px">
-        <img src="./img/index/youtube (2).png" class="img-fluid" style="position: absolute;right: 5px;top: 8px; width:40px">
+        <img src="./img/index/facebook (1).png" class="img-fluid" id="iconF" style="position: absolute;right: 50px;top: 8px;width: 13vmin;">
+        <img src="./img/index/youtube (2).png" class="img-fluid" id="iconY" style="position: absolute;right: 5px;top: 8px;width: 13vmin;">
 
     </div>
     <div class="container-fluid">

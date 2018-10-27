@@ -14,14 +14,43 @@
         crossorigin="anonymous"></script>
     <script src="./index.js"></script>
     <title>爬蟲展示頁</title>
+    <style>
+        * {
+            padding: 0px;
+        }
+
+        body {
+            margin: 0px;
+            background: url("img/index/BG.jpg") center center fixed no-repeat;
+            /* background-size: cover; */
+            background-size: 100% 100%;
+        }
+
+        .container-fluid {
+            padding: 0px;
+        }
+
+        .row {
+            margin: 0px;
+        }
+
+        .nopad {
+            padding: 0px;
+        }
+    </style>
 </head>
 
 <body style="background-color:black">
+    <div class="row">
+        <a href="./index.php">
+            <img src="./img/MENU_noimg.png" class="img-fluid" id="menu">
+        </a>
+        <img src="./img/index/facebook (1).png" class="img-fluid" style="position: absolute;right: 50px;top: 8px; width:40px">
+        <img src="./img/index/youtube (2).png" class="img-fluid" style="position: absolute;right: 5px;top: 8px; width:40px">
 
+    </div>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed;margin-top: 0px;width: 100%;z-index: 999999999999999;">
-            <a class="navbar-brand" href="#">首頁</a>
-        </nav>
+
         <div style="height:100px"></div>
 
         <div class="card-header">
@@ -84,9 +113,9 @@
                     $("#content").text = "";
                     var b = '';
                     for (var val in data.content) {
-                      b = b+data.content[val];                 
+                        b = b + data.content[val];
                     }
-                    
+
                     $("#content").text(b);
                     $("#keyword").text = "";
                     $("#keyword").text(data.keywords);

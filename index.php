@@ -20,7 +20,9 @@
         * {
             padding: 0px;
         }
-
+        html{
+            height:100%;
+        }
         body {
             height:100%;
             margin: 0px;

@@ -22,9 +22,11 @@
             margin: 0px;
             letter-spacing: 1px;
         }
-        p{
-            font-size:4vmin;
+
+        p {
+            font-size: 4vmin;
         }
+
         *,
         .col-5,
         .col-2 {
@@ -61,40 +63,32 @@
             font-style: italic;
             font-weight: bold;
         }
+
+        .btn_title {
+            background-image: url(img/內頁/BUTTON.png);
+            background-size: 100% 100%;
+        }
+
+        #keyword {
+            background-image: url("img/內頁/外框.png");
+            background-size: 100% 100%;
+        }
     </style>
-    <script>
-        $(function () {
-            //讓那該死的按鈕可以漂亮點
-            var menu_H = $("#menu").css("height");            
-            var menu_H_num = parseInt(menu_H.replace('px', ''));
-            $("#iconF").css('right', menu_H_num - 10 + 5 + 5);
-            $("#iconF").css('top', 5);
-            $("#iconY").css('top', 5);
-        })
-    </script>
+    <script src="./general/menuicon.js"></script>
+
 </head>
 
 <body style="background-color:black">
-    <div class="row">
-        <a href="./index.php">
-            <img src="./img/MENU_noimg.png" class="img-fluid" id="menu">
-        </a>
-        <img src="./img/index/facebook (1).png" class="img-fluid" id="iconF" style="position: absolute;right: 50px;top: 8px;width: 13vmin;">
-        <img src="./img/index/youtube (2).png" class="img-fluid" id="iconY" style="position: absolute;right: 5px;top: 8px;width: 13vmin;">
-
-    </div>
+    <?
+        include './general/menu.php'
+    ?>
     <div class="container-fluid">
-        <div class="row" style="height:25px;"></div>
-        <div class="row">
-            <div class="col-5"></div>
-            <div class="col-2">
-                <img src="./img/內頁/金幣.png" class="img-fluid">
-            </div>
-            <div class="col-5"></div>
-        </div>
+
+        <? include './general/gold_icon.php' ?>
+
         <div class="row" style="text-align:center;margin-top:5px">
             <div class="col">
-                <h4 style="color:white">語意分析說明</h4>
+                <h4 style="color:white;font-size: 6vmin;">語意分析說明</h4>
             </div>
         </div>
         <div class="row" style="text-align:center;margin-top: 5px;">
@@ -113,16 +107,16 @@
             </div>
         </div>
 
-        <div class="row" style="text-align:center;margin-top:15px">
+        <? include './general/start.php' ?>
+
+
+        <div class="row" style="text-align:center;margin-top:25px">
             <div class="col">
-                <img src="./img/內頁/START.gif" style="width: 50px;" class="img-fluid">
+                <h4 style="color:white;font-size: 6vmin;" id="choose_art">選擇有興趣的文章</h4>
             </div>
         </div>
 
-        <div class="card-header">
-            測試連結區域
-        </div>
-        <div class="card" style="height: 300px;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 1px white solid;">
+        <div class="card" style="height: 70vmin;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 0px white solid;margin-top: 20px;">
 
             <div class="card-body" style="background-color:rgba(1,1,1,0);">
                 <ul class="list-group list-group-flush" id="USA_V">
@@ -133,7 +127,11 @@
                             $url_decode = urldecode($val);
                             $url_s1 = substr_replace($url_decode,"",0,6);
                             $url = substr_replace($url_s1,"",strpos($url_s1,".json"),5);
-                            echo "<div class='btn btn-outline-success udnbtn' style='overflow: hidden;color:white'>".$url."</div>";
+                            echo "<div class='btn_title'>
+                            <div class='udnbtn' style='height:11vmin;overflow: hidden;color:white;line-height:12vmin;margin-left: 18vmin;font-size: 4vmin;'>"
+                            .$url.
+                            "</div>
+                            </div>";
                         }
                     ?>
 
@@ -141,28 +139,46 @@
             </div>
         </div>
 
-        <div class="row" style="height:100px;"></div>
-        <div class="card-header">
-            文章內容區域
+        <div class="row" style="text-align:center;margin-top:25px">
+            <div class="col">
+                <h4 style="color:white;font-size: 6vmin;" id="art_content">內文瀏覽</h4>
+            </div>
         </div>
-        <div class="card" style="height: 300px;overflow-y: scroll;background-color:rgba(1,1,1,0);">
 
-            <div class="card-body" style="background-color:rgba(1,1,1,0);">
+
+        <div class="card" style="height: 80vmin;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 0px;padding-right: 5vmin;padding-left: 5vmin;padding-top: 2vmin;">
+
+            <div class="card-body" style="background-color:rgba(1,1,1,0);border: 1px #FFF solid;">
                 <ul class="list-group list-group-flush" id="content" style="color:white">
 
                 </ul>
             </div>
         </div>
-        <div class="row" style="height:100px;"></div>
-        <div class="card-header">
-            關鍵字區域
+
+
+        <div class="row" style="text-align:center;margin-top: 6vmin;">
+            <div class="col">
+                <img id="gold_an" src="./img/內頁/BUTTON-1.png" class="img-fluid" style="width: 45vmin;">
+            </div>
         </div>
-        <div class="card" style="height: 300px;overflow-y: scroll; background-color:rgba(1,1,1,0);">
+
+
+        <!-- <div class="card" style="height: 300px;overflow-y: scroll; background-color:rgba(1,1,1,0);">
 
             <div class="card-body" style="background-color:rgba(1,1,1,0);">
                 <ul class="list-group list-group-flush" id="keyword" style="color:white">
 
                 </ul>
+            </div>
+        </div> -->
+        <div class="row" style="margin-top: 20px;padding-right:8vmin;padding-left:8vmin;display:none" id="anablock">
+            <div class="col" style="height:60vmin;color:white" id="keyword">
+                你好,嗨吃屎吧,我是誰
+            </div>
+        </div>
+        <div class="row" style="text-align:center">
+            <div class="col">
+                <img id="ana_btn" src="./img/內頁/寶藏-關.png" style="width: 40vmin;" class="img-fluid">
             </div>
         </div>
 
@@ -171,7 +187,14 @@
     </div>
     <script>
         $(function () {
+            $("#ana_btn").click(function(){
+
+                $("#anablock").css('display','block');
+            })
             $(".udnbtn").click(function () {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#art_content").offset().top
+                }, 1000);
                 var url = this.innerText;
                 // $.getJSON('https://events.clickforce.com.tw/digiasia2018/' + url, function (data) {
 
@@ -194,6 +217,21 @@
                     }, 300);
                 }
             }
+            //點了 start gif 檔後跳轉到 選文章區域
+            $("#start_btn").click(function () {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#choose_art").offset().top
+                }, 1000);
+            })
+
+            //按鈕 hover效果
+            $("#gold_an").on('touchstart', function () {
+                $("#gold_an").attr('src', './img/內頁/BUTTON-2.png');
+            });
+            $("#gold_an").on('touchend', function () {
+                $("#gold_an").attr('src', './img/內頁/BUTTON-1.png');
+            })
+
         })
     </script>
 </body>

@@ -38,34 +38,20 @@
             padding: 0px;
         }
     </style>
-    <script>
-        $(function () {
-            //讓那該死的按鈕可以漂亮點
-            var menu_H = $("#menu").css("height");            
-            var menu_H_num = parseInt(menu_H.replace('px', ''));
-            $("#iconF").css('right', menu_H_num - 10 + 5 + 5);
-            $("#iconF").css('top', 5);
-            $("#iconY").css('top', 5);
-        })
-    </script>
+    <script src="./general/menuicon.js"></script>
+
 </head>
 
 <body style="background-color:black">
-    <div class="row">
-        <a href="./index.php">
-            <img src="./img/MENU_noimg.png" class="img-fluid" id="menu">
-        </a>
-        <img src="./img/index/facebook (1).png" class="img-fluid" id="iconF" style="position: absolute;right: 50px;top: 8px;width: 13vmin;">
-        <img src="./img/index/youtube (2).png" class="img-fluid" id="iconY" style="position: absolute;right: 5px;top: 8px;width: 13vmin;">
-
-    </div>
+    <?
+        include './general/menu.php'
+    ?>
     <div class="container-fluid">
 
-        <div style="height:100px"></div>
+        <? include './general/gold_icon.php' ?>
 
-        <div class="card-header">
-            測試連結區域
-        </div>
+
+
         <div class="card" style="height: 300px;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 1px white solid;">
 
             <div class="card-body" style='background-color:rgba(1,1,1,0);'>

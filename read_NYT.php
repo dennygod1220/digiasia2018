@@ -167,7 +167,7 @@
         </div>
         <!-- 關鍵字顯示區 -->
         <div class="row" style="margin-top: 20px;padding-right:8vmin;padding-left:8vmin;height: 40vmin;" id="anablock">
-            <div class="col" style="height:50vmin;color:white;display:none;word-break: break-all;" id="keyword">
+            <div class="col" style="height:50vmin;color:white;display:none;word-break: break-all;opacity:0" id="keyword">
                 <p style="color:white" id="keywordp"></p>
             </div>
         </div>

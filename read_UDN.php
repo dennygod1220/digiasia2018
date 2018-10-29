@@ -90,10 +90,10 @@
 </head>
 
 <body style="background-color:black">
-    <?php  include './general/menu.php';?>
+    <? include './general/menu.php';?>
     <div class="container-fluid">
 
-        <?php  include './general/gold_icon.php'; ?>
+        <?  include './general/gold_icon.php'; ?>
 
         <div class="row" style="text-align:center;margin-top:5px">
             <div class="col">
@@ -116,7 +116,7 @@
             </div>
         </div>
 
-        <?php  include './general/start.php'; ?>
+        <?  include './general/start.php'; ?>
 
         <!-- 按鈕標頭。 -->
         <div class="row" style="text-align:center;margin-top:25px">

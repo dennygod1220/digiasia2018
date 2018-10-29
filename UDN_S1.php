@@ -86,8 +86,8 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
                 // echo ("嘗試向檔案" . $TxtFileName . "寫入" . $StrConents . "成功！");
                 fclose($TxtRes); //關閉指標
             }else{
-                echo "******** " .$res_ar["link"] . "*************沒有content \r\n" 
-            }
+                echo "******** " .$res_ar["link"] . "*************沒有content \r\n" ;
+            };
     
         }
     }

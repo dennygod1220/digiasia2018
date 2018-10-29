@@ -256,8 +256,8 @@
                     scrollTop: $("#art_content").offset().top
                 }, 1000);
                 var url = $(this).attr("file_path");
-                // $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/' + url+ '.json', function (data) {
-                $.getJSON('http://localhost:8889/digiasia2018/UDN_S/' + url + '.json', function (data) {
+                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/' + url+ '.json', function (data) {
+                // $.getJSON('http://localhost:8889/digiasia2018/UDN_S/' + url + '.json', function (data) {
                     $("#content").text("");
                     $("#content").text(data.content);
                     $("#keyword").css('display', 'none');

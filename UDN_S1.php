@@ -24,7 +24,7 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
                     curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
                     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 900); 
                     $res = curl_exec($ch);
-                    echo "儲存: " . $decode['channel']['item'][$i]['link'] ."  ||  " .$res ."<br>";
+                    echo "儲存: " . $decode['channel']['item'][$i]['link'] ."  ||  "."<br>";
                     //取得http 狀態碼 
                     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                     if (curl_errno($ch) == 28) {

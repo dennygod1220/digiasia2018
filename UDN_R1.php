@@ -68,7 +68,7 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
 
             //以讀寫方式打寫指定檔案，如果檔案不存則建立
             if (($TxtRes = fopen($TxtFileName, "w ")) === false) {
-                echo ("建立可寫檔案：" . $TxtFileName . "失敗");
+                echo ("建立可寫檔案：" . $TxtFileName . "失敗 || " .$decode["channel"]["item"][$i]["link"] ."<br>" );
                 exit();
             }
             // echo ("建立可寫檔案" . $TxtFileName . "成功！</br>");
@@ -76,7 +76,7 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
             //要 寫進檔案的內容
             if (!fwrite($TxtRes, $res_js)) { 
                 //將資訊寫入檔案
-                echo ("嘗試向檔案" . $TxtFileName . "寫入" . $StrConents . "失敗！");
+                echo ("嘗試向檔案" . $TxtFileName . "寫入" . $StrConents . "失敗！|| " .$decode["channel"]["item"][$i]["link"] ."<br>");
                 fclose($TxtRes);
                 exit();
             }

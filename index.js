@@ -1,4 +1,4 @@
-$(function(){
-    console.log($("#USA_V > li").length)
+// $(function(){
+//     console.log($("#USA_V > li").length)
     
-})
+// })

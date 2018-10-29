@@ -12,8 +12,24 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="./index.js"></script>
     <title>爬蟲展示頁</title>
+
+    <script>
+        $(function () {
+            function getRandom(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            };
+            console.log($(".udnbtn"));
+
+            // console.log($(".udnbtn").length);
+            var max = $(".udnbtn").length;
+            var ran_ar = [];
+            for (var x = 0; x < 5; x++) {
+                ran_ar.push(getRandom(0, max));
+            }
+        })
+    </script>
+
     <style>
         p,
         h4,
@@ -74,10 +90,10 @@
 </head>
 
 <body style="background-color:black">
-    <?php echo include './general/menu.php';?>
+    <?php  include './general/menu.php';?>
     <div class="container-fluid">
 
-        <? include './general/gold_icon.php' ?>
+        <?php  include './general/gold_icon.php'; ?>
 
         <div class="row" style="text-align:center;margin-top:5px">
             <div class="col">
@@ -100,7 +116,7 @@
             </div>
         </div>
 
-        <? include './general/start.php' ?>
+        <?php  include './general/start.php'; ?>
 
         <!-- 按鈕標頭。 -->
         <div class="row" style="text-align:center;margin-top:25px">
@@ -115,13 +131,17 @@
             <div class="card-body" style="background-color:rgba(1,1,1,0);">
                 <ul class="list-group list-group-flush" id="USA_V">
                     <?php
+                        function NoRand($begin=0,$end=20,$limit=5){ 
+                            $rand_array=range($begin,$end);                            
+                            shuffle($rand_array);//調用現成的數組隨機排列函數 
+                            return array_slice($rand_array,0,$limit);//截取前$limit個 
+                        } 
                         $json_file = 'UDN_S/*.json';
                         $file_ar = glob($json_file);
-                        // var_dump($file_ar);
-                        
-                        foreach($file_ar as $val){
-                            $file = file_get_contents($val);
-                            // var_dump(json_decode($file));
+                        $file_rand = NoRand(1,count($file_ar)-1);
+                        for($x=0;$x<count($file_rand);$x++){
+                            $file_path = $file_ar[$file_rand[$x]];
+                            $file = file_get_contents($file_path);
                             $file_obj = json_decode($file);
                             $title = $file_obj->title;
                             $url_decode = urldecode($val);
@@ -196,7 +216,8 @@
         <!-- 比利哥YouTube -->
         <div class="row" style="text-align:center;margin-top: 5vmin;">
             <div class="col">
-                <iframe src="https://www.youtube.com/embed/CnT1IniYwIY?rel=0&autoplay=1" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+                <iframe src="https://www.youtube.com/embed/CnT1IniYwIY?rel=0&autoplay=1" frameborder="0"
+                    allowfullscreen allow="autoplay"></iframe>
             </div>
         </div>
         <!-- 公司簡介 -->
@@ -214,17 +235,17 @@
         </div>
         <!-- 公司標語 -->
         <div class="row" style="margin-top:10vmin;">
-          <div class="col" style="padding: 0px;">
-            <img src="./img/內頁/KPI要達標 就找域動行銷.png" alt="" class="img-fluid">
-          </div>
+            <div class="col" style="padding: 0px;">
+                <img src="./img/內頁/KPI要達標 就找域動行銷.png" alt="" class="img-fluid">
+            </div>
         </div>
         <div class="row" style="margin-top:-1px;">
-          <div class="col" style="padding: 0px;">
-            <img src="./img/內頁/電話.png" alt="" class="img-fluid">
-          </div>
-          <div class="col" style="padding: 0px;">
-            <img src="./img/內頁/MAIL.png" alt="" class="img-fluid">
-          </div>
+            <div class="col" style="padding: 0px;">
+                <img src="./img/內頁/電話.png" alt="" class="img-fluid">
+            </div>
+            <div class="col" style="padding: 0px;">
+                <img src="./img/內頁/MAIL.png" alt="" class="img-fluid">
+            </div>
         </div>
     </div>
     <script>
@@ -235,7 +256,6 @@
                     scrollTop: $("#art_content").offset().top
                 }, 1000);
                 var url = $(this).attr("file_path");
-                console.log(url);
                 // $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/' + url+ '.json', function (data) {
                 $.getJSON('http://localhost:8889/digiasia2018/UDN_S/' + url + '.json', function (data) {
                     $("#content").text("");
@@ -247,6 +267,7 @@
                     opacityset('keyword', 0);
                 })
             });
+
             function opacityset(id, num) {
                 if (num < 1) {
                     $("#" + id).css('opacity', num);
@@ -273,12 +294,11 @@
                     scrollTop: $("#gold_an").offset().top,
                     opacity: 1
                 }, 1000);
-            })
-            //點了寶藏香後
-            $("#ana_btn").click(function () {
-                $("#ana_btn").attr("src", "./img/內頁/寶藏-開.png");
-                $("#keyword").css('display', 'block');
-                opacityset('keyword', 0);
+                setTimeout(() => {
+                    $("#ana_btn").attr("src", "./img/內頁/寶藏-開.png");
+                    $("#keyword").css('display', 'block');
+                    opacityset('keyword', 0);
+                }, 1200);
             })
         })
     </script>

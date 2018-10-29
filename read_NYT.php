@@ -115,17 +115,21 @@
             <div class="card-body" style="background-color:rgba(1,1,1,0);">
                 <ul class="list-group list-group-flush" id="USA_V">
                     <?php
+                        function NoRand($begin=0,$end=20,$limit=5){ 
+                            $rand_array=range($begin,$end);                            
+                            shuffle($rand_array);//調用現成的數組隨機排列函數 
+                            return array_slice($rand_array,0,$limit);//截取前$limit個 
+                        } 
                         $json_file = 'NYT_S/*.json';
                         $file_ar = glob($json_file);
-                        // var_dump($file_ar);
-                        
-                        foreach($file_ar as $val){
-                            $file = file_get_contents($val);
-                            // var_dump(json_decode($file));
+                        $file_rand = NoRand(1,count($file_ar)-1);
+                        for($x=0;$x<count($file_rand);$x++){
+                            $file_path = $file_ar[$file_rand[$x]];
+                            $file = file_get_contents($file_path);
                             $file_obj = json_decode($file);
                             $title = $file_obj->title;
                             $url_decode = urldecode($val);
-                            $url_s1 = substr_replace($url_decode,"",0,6);
+                            $url_s1 = substr_replace($file_path,"",0,6);
                             $url = substr_replace($url_s1,"",strpos($url_s1,".json"),5);
                             echo "<div class='btn_title'>
                             <div class='udnbtn' style='height:11vmin;overflow: hidden;color:white;line-height:12vmin;margin-left: 18vmin;font-size: 4vmin;' file_path='".$url."'>"

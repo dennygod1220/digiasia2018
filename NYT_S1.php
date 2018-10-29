@@ -8,11 +8,12 @@ $decode = json_decode($json, true);
 
 
 //////刪除目錄下原有的檔案///////
-// $dir = glob('NYT_S/*.json'); //
-                             //
+$dir = glob('NYT_S/*.json'); //
+foreach ($dir as $val) {     //
+    unlink($val);            //
+}                                //
 ///////////////////////////////
 
-var_dump($decode);
 
 ///////////////////////////////將xml link 取出後 呼叫儲存文章API //////////////////////////////////////////////////////////////////////
 for($i=0;$i<count($decode["channel"]["item"]);$i++){
@@ -31,7 +32,7 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
                         echo "Timeout";
                     }
                     curl_close($ch);
-                    echo "儲存: " . $decode['channel']['item'][$i]['link'] ."  ||  " .$res ."<br>";
+                    echo "儲存: " . $decode['channel']['item'][$i]['link'] ."  ||  " .$res ."\r\n";
 
     }
     
@@ -70,7 +71,7 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
             // $TxtFileName ="UDN_S/".$decode["channel"]["item"][$i]["title"].".json";
             
             if(isset($res_ar["content"])){
-                $TxtFileName ="UDN_S/".$i.".json";
+                $TxtFileName ="NYT_S/".$i.".json";
     
                 //以讀寫方式打寫指定檔案，如果檔案不存則建立
                 if (($TxtRes = fopen($TxtFileName, "w ")) === false) {

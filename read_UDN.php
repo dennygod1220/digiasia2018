@@ -292,7 +292,6 @@
             $("#gold_an").click(function () {
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $("#gold_an").offset().top,
-                    opacity: 1
                 }, 1000);
                 setTimeout(() => {
                     $("#ana_btn").attr("src", "./img/內頁/寶藏-開.png");

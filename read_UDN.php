@@ -183,7 +183,7 @@
         </div>
         <!-- 關鍵字顯示區 -->
         <div class="row" style="margin-top: 20px;padding-right:8vmin;padding-left:8vmin;height: 40vmin;" id="anablock">
-            <div class="col" style="height:50vmin;color:white;display:none" id="keyword">
+            <div class="col" style="height:50vmin;color:white;display:none;opacity:0" id="keyword">
             </div>
         </div>
         <!-- 寶藏相 -->

@@ -74,9 +74,7 @@
 </head>
 
 <body style="background-color:black">
-    <?
-       echo include './general/menu.php';
-    ?>
+    <?php echo include './general/menu.php';?>
     <div class="container-fluid">
 
         <? include './general/gold_icon.php' ?>

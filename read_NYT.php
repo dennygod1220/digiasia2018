@@ -186,7 +186,7 @@
         <!-- 隨身影音 -->
         <div class="row" style=" margin-top: 8vmin;">
             <div class="col" style="text-align:center">
-                <ins class="clickforceads" style="display:inline-block;width:301px;height:251px;" data-ad-zone="8660"></ins>
+                <ins class="clickforceads" style="display:inline-block;width:301px;height:251px;" data-ad-zone="8669"></ins>
                 <script async type="text/javascript" src="//cdn.doublemax.net/js/init.js"></script>
             </div>
         </div>
@@ -263,6 +263,7 @@
                     }, 300);
                 }
             }
+            
             //點了 start gif 檔後跳轉到 選文章區域
             $("#start_btn").click(function () {
                 $([document.documentElement, document.body]).animate({

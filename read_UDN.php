@@ -264,7 +264,6 @@
                     $("#keyword").text("");
                     $("#keyword").text(data.keywords);
                     opacityset('content', 0);
-                    opacityset('keyword', 0);
                 })
             });
 

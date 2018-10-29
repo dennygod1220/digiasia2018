@@ -253,7 +253,6 @@
                     $("#keywordp").text("");
                     $("#keywordp").text(data.keywords);
                     opacityset('content', 0);
-                    opacityset('keyword', 0);
                 })
             });
             function opacityset(id, num) {

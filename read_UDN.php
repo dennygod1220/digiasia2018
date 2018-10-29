@@ -145,7 +145,7 @@
                             $file_obj = json_decode($file);
                             $title = $file_obj->title;
                             $url_decode = urldecode($val);
-                            $url_s1 = substr_replace($url_decode,"",0,6);
+                            $url_s1 = substr_replace($file_path,"",0,6);
                             $url = substr_replace($url_s1,"",strpos($url_s1,".json"),5);
                             echo "<div class='btn_title'>
                             <div class='udnbtn' style='height:11vmin;overflow: hidden;color:white;line-height:12vmin;margin-left: 18vmin;font-size: 4vmin;' file_path='".$url."'>"

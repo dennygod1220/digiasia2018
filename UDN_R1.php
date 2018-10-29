@@ -71,7 +71,7 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
                 echo ("建立可寫檔案：" . $TxtFileName . "失敗");
                 exit();
             }
-            echo ("建立可寫檔案" . $TxtFileName . "成功！</br>");
+            // echo ("建立可寫檔案" . $TxtFileName . "成功！</br>");
     
             //要 寫進檔案的內容
             if (!fwrite($TxtRes, $res_js)) { 
@@ -80,7 +80,7 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
                 fclose($TxtRes);
                 exit();
             }
-            echo ("嘗試向檔案" . $TxtFileName . "寫入" . $StrConents . "成功！");
+            // echo ("嘗試向檔案" . $TxtFileName . "寫入" . $StrConents . "成功！");
             fclose($TxtRes); //關閉指標
         }
 

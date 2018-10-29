@@ -22,21 +22,17 @@
             margin: 0px;
             letter-spacing: 1px;
         }
-
         p {
             font-size: 4vmin;
         }
-
         *,
         .col-5,
         .col-2 {
             padding: 0px;
         }
-
         html {
             height: 100%;
         }
-
         body {
             height: 100%;
             margin: 0px;
@@ -44,31 +40,25 @@
             /* background-size: cover; */
             background-size: 100% 100%;
         }
-
         .container-fluid {
             padding: 0px;
         }
-
         .row {
             margin: 0px;
         }
-
         .nopad {
             padding: 0px;
         }
-
         .yspan {
             margin-right: 3px;
             color: yellow;
             font-style: italic;
             font-weight: bold;
         }
-
         .btn_title {
             background-image: url(img/內頁/BUTTON.png);
             background-size: 100% 100%;
         }
-
         #keyword {
             background-image: url("img/內頁/外框.png");
             background-size: 100% 100%;
@@ -85,7 +75,7 @@
 
 <body style="background-color:black">
     <?
-        include './general/menu.php'
+       echo include './general/menu.php';
     ?>
     <div class="container-fluid">
 
@@ -241,18 +231,15 @@
     </div>
     <script>
         $(function () {
-
             $(".udnbtn").click(function () {
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
-
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $("#art_content").offset().top
                 }, 1000);
                 var url = $(this).attr("file_path");
                 console.log(url);
-                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/' + url+ '.json', function (data) {
-
-                // $.getJSON('http://localhost:8888/digiasia2018/UDN_S/' + url + '.json', function (data) {
+                // $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/' + url+ '.json', function (data) {
+                $.getJSON('http://localhost:8889/digiasia2018/UDN_S/' + url + '.json', function (data) {
                     $("#content").text("");
                     $("#content").text(data.content);
                     $("#keyword").css('display', 'none');
@@ -262,9 +249,7 @@
                     opacityset('keyword', 0);
                 })
             });
-
             function opacityset(id, num) {
-
                 if (num < 1) {
                     $("#" + id).css('opacity', num);
                     setTimeout(() => {
@@ -278,7 +263,6 @@
                     scrollTop: $("#choose_art").offset().top
                 }, 1000);
             })
-
             //按鈕 hover效果
             $("#gold_an").on('touchstart', function () {
                 $("#gold_an").attr('src', './img/內頁/BUTTON-2.png');
@@ -295,11 +279,9 @@
             //點了寶藏香後
             $("#ana_btn").click(function () {
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-開.png");
-
                 $("#keyword").css('display', 'block');
                 opacityset('keyword', 0);
             })
-
         })
     </script>
 </body>

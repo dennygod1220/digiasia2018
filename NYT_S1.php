@@ -8,7 +8,7 @@ $decode = json_decode($json, true);
 
 
 //////刪除目錄下原有的檔案///////
-$dir = glob('NYT_S/*.json'); //
+// $dir = glob('NYT_S/*.json'); //
                              //
 ///////////////////////////////
 
@@ -16,12 +16,14 @@ $dir = glob('NYT_S/*.json'); //
 
 ///////////////////////////////將xml link 取出後 呼叫儲存文章API //////////////////////////////////////////////////////////////////////
 for($i=0;$i<count($decode["channel"]["item"]);$i++){
+// for($i=0;$i<20;$i++){
+
     if (isset($decode["channel"]["item"][$i]["title"])) {
                     $ch = curl_init();
                     curl_setopt($ch,CURLOPT_URL,"http://35.234.18.81/nyt?url=".$decode["channel"]["item"][$i]["link"]);
                     curl_setopt($ch,CURLOPT_HEADER,false);
                     curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-                    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 60); 
+                    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, 180); 
                     $res = curl_exec($ch);
                     //取得http 狀態碼 
                     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);

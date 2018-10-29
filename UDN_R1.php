@@ -40,6 +40,7 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
 
     if (isset($decode["channel"]["item"][$i]["title"])) {
         $ch = curl_init();
+        var_dump($decode["channel"]["item"][$i]["link"]);
         curl_setopt($ch,CURLOPT_URL,"http://35.234.18.81/result/udn?url=".$decode["channel"]["item"][$i]["link"]);
         curl_setopt($ch,CURLOPT_HEADER,false);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);

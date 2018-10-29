@@ -237,7 +237,7 @@
                 }, 1000);
                 var url = $(this).attr("file_path");
                 console.log(url);
-                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/' + url+ '.json', function (data) {
+                $.getJSON('https://events.clickforce.com.tw/digiasia2018/NYT_S/' + url+ '.json', function (data) {
                 // $.getJSON('http://localhost:8889/digiasia2018/NYT_S/' + url + '.json', function (data) {
                     var b = '';
                     for(var val in data.content){
@@ -282,7 +282,7 @@
                     $("#ana_btn").attr("src", "./img/內頁/寶藏-開.png");
                     $("#keyword").css('display', 'block');
                     opacityset('keyword', 0);
-                }, 1200);
+                }, 500);
             })
         })
     </script>

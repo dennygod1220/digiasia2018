@@ -1,6 +1,6 @@
 <?php
 set_time_limit(0);
-$file = file_get_contents('http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml');
+$file = file_get_contents('https://www.cbc.ca/cmlink/rss-topstories');
 //不知道為啥 沒有加參數 抓不到 CADATA中的東西
 $xml = simplexml_load_string($file,null,LIBXML_NOCDATA);
 $json = json_encode($xml);

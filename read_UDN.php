@@ -298,7 +298,7 @@
                     $("#ana_btn").attr("src", "./img/內頁/寶藏-開.png");
                     $("#keyword").css('display', 'block');
                     opacityset('keyword', 0);
-                }, 1200);
+                }, 500);
             })
         })
     </script>

@@ -49,8 +49,8 @@
 </head>
 
 <body style="background-color:black">
-    <?
-        include './general/menu.php'
+    <?php
+        include('./general/menu.php');
     ?>
     <div class="container-fluid">
         <div class="row" style="height:50px">

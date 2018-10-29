@@ -59,7 +59,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <img src="./img/index/powerwordA.png" class="img-fluid" id="pwa">
+                <img src="./img/index/powerwordB.png" class="img-fluid" id="pwa">
             </div>
         </div>
         <div class="row" style="height:25px"></div>
@@ -88,14 +88,14 @@
     </div>
 
     <script>
-        $(function () {
-            $("#pwa").on('touchstart', function () {
-                $("#pwa").attr('src', './img/index/powerwordB.png');
-            });
-            $("#pwa").on('touchend', function () {
-                $("#pwa").attr('src', './img/index/powerwordA.png');
-            })
-        })
+        // $(function () {
+        //     $("#pwa").on('touchstart', function () {
+        //         $("#pwa").attr('src', './img/index/powerwordB.png');
+        //     });
+        //     $("#pwa").on('touchend', function () {
+        //         $("#pwa").attr('src', './img/index/powerwordA.png');
+        //     })
+        // })
     </script>
 </body>
 

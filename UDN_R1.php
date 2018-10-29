@@ -76,7 +76,7 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
             //要 寫進檔案的內容
             if (!fwrite($TxtRes, $res_js)) { 
                 //將資訊寫入檔案
-                echo ("嘗試向檔案" . $TxtFileName . "寫入" . $StrConents . "失敗！|| " .$decode["channel"]["item"][$i]["link"] ."<br>");
+                echo ("嘗試向檔案" . $TxtFileName . "寫入" . $StrConents . "失敗！|| " .$decode["channel"]["item"][$i]["link"] ."<br>" . $res_js ."<br> ---------------<br>");
                 fclose($TxtRes);
                 exit();
             }

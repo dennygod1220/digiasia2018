@@ -50,7 +50,6 @@ for($i=0;$i<count($decode["channel"]["item"]);$i++){
         $res_ar["link"] =$decode["channel"]["item"][$i]["link"];
         $res_ar["title"] = $decode["channel"]["item"][$i]["title"];
         $res_js = json_encode($res_ar);
-        var_dump($res_js);
         // var_dump(json_encode($res_ar));
         // var_dump(json_encode($res_js));
 

@@ -218,19 +218,7 @@
             </div>
         </div>
         <!-- 公司標語 -->
-        <div class="row" style="margin-top:10vmin;">
-          <div class="col" style="padding: 0px;">
-            <img src="./img/內頁/KPI要達標 就找域動行銷.png" alt="" class="img-fluid">
-          </div>
-        </div>
-        <div class="row" style="margin-top:-1px;">
-          <div class="col" style="padding: 0px;">
-            <img src="./img/內頁/電話.png" alt="" class="img-fluid">
-          </div>
-          <div class="col" style="padding: 0px;">
-            <img src="./img/內頁/MAIL.png" alt="" class="img-fluid">
-          </div>
-        </div>
+        <?php include("./general/cf_title.php");?>
     </div>
     <script>
         $(function () {

@@ -335,7 +335,7 @@
                         // console.log(mapping_val[index]);
                         console.log($("#people_img").css('height'))
 
-                        var s ='<div class="row append_row"style="margin-top: 3vmin;"id="people"><div class="col-3" style="padding: 0px;max-width: 26%;"><p class="cf_key_p">'+key+'</p></div><div class="col-3"style="padding: 0px;max-width: 20%;margin-left: 7vmin;"><p class="cf_key_p">'+mapping_val[index][0]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][1]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][2]+'</p></div></div>'
+                        var s ='<div class="row append_row"style="margin-top: 3vmin;display:none"id="people"><div class="col-3" style="padding: 0px;max-width: 26%;"><p class="cf_key_p">'+key+'</p></div><div class="col-3"style="padding: 0px;max-width: 20%;margin-left: 7vmin;"><p class="cf_key_p">'+mapping_val[index][0]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][1]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][2]+'</p></div></div>'
                           
                         $(s).insertAfter("#people");
                     }
@@ -372,6 +372,7 @@
                 setTimeout(() => {
                     $("#ana_btn").attr("src", "./img/內頁/寶藏-開.png");
                     $("#keyword_block").css('display', 'block');
+                    $(".append_row").css('display', 'block');
 
                     $("#keyword").css('display', 'block');
                     opacityset('keyword', 0);

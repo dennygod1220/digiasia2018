@@ -19,7 +19,6 @@
             function getRandom(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             };
-            console.log($(".udnbtn"));
 
             // console.log($(".udnbtn").length);
             var max = $(".udnbtn").length;
@@ -75,14 +74,28 @@
             background-image: url(img/內頁/BUTTON.png);
             background-size: 100% 100%;
         }
-        #keyword {
-            background-image: url("img/內頁/外框.png");
+        #anablock {
+            background-image: url("img/1101/border.png");
             background-size: 100% 100%;
         }
         .CompanyProfile{
             color:white;
             margin-top:2vmin;
             font-size: 3vmin;
+        }
+        .cf_key_p{
+            padding: 0px;
+            border:1px #fff solid;
+            word-wrap: break-word;
+            color:white;
+            font-size:3vmin !important;
+            height: 100%;
+        }
+        .cf_key_div{
+            padding: 0px;
+            max-width: 20%;
+            font-size:2vmin;
+            margin-left: 2vmin;
         }
     </style>
     <script src="./general/menuicon.js"></script>
@@ -136,19 +149,16 @@
                             shuffle($rand_array);//調用現成的數組隨機排列函數 
                             return array_slice($rand_array,0,$limit);//截取前$limit個 
                         } 
-                        $json_file = 'UDN_S/*.json';
-                        $file_ar = glob($json_file);
-                        $file_rand = NoRand(1,count($file_ar)-1);
+                        $file = file_get_contents('UDN_S/one.json');
+                        $json = json_decode($file);
+
+                        $file_rand = NoRand(0,count($json)-1);
                         for($x=0;$x<count($file_rand);$x++){
-                            $file_path = $file_ar[$file_rand[$x]];
-                            $file = file_get_contents($file_path);
-                            $file_obj = json_decode($file);
-                            $title = $file_obj->title;
-                            $url_decode = urldecode($val);
-                            $url_s1 = substr_replace($file_path,"",0,6);
-                            $url = substr_replace($url_s1,"",strpos($url_s1,".json"),5);
+
+                            $title = $json[$file_rand[$x]]->title;
+                            $url = $json[$file_rand[$x]]->url;
                             echo "<div class='btn_title'>
-                            <div class='udnbtn' style='height:11vmin;overflow: hidden;color:white;line-height:12vmin;margin-left: 18vmin;font-size: 4vmin;' file_path='".$url."'>"
+                            <div class='udnbtn' style='height:11vmin;overflow: hidden;color:white;line-height:12vmin;margin-left: 18vmin;font-size: 4vmin;' if_url='".$url."' file_path='".$file_rand[$x]."'>"
                             .$title.
                             "</div>
                             </div>";
@@ -168,10 +178,8 @@
         <!-- 文章內文顯示區 -->
         <div class="card" style="height: 80vmin;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 0px;padding-right: 5vmin;padding-left: 5vmin;padding-top: 2vmin;margin-top: 5vmin;">
 
-            <div class="card-body" style="background-color:rgba(1,1,1,0);border: 1px #FFF solid;">
-                <ul class="list-group list-group-flush" id="content" style="color:white">
+            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;">
 
-                </ul>
             </div>
         </div>
 
@@ -182,9 +190,28 @@
             </div>
         </div>
         <!-- 關鍵字顯示區 -->
-        <div class="row" style="margin-top: 20px;padding-right:8vmin;padding-left:8vmin;height: 40vmin;" id="anablock">
-            <div class="col" style="height:50vmin;color:white;display:none;opacity:0" id="keyword">
+        <div class="row" style="margin: 20px 2vmin 0px 2vmin;padding-right:3vmin;padding-left:3vmin;height: 110vmin;"
+            id="anablock">
+            <div class="container-fluid" id="keyword_block" style="display:none">
+                <div class="row">
+                    <div class="col" style="color:white;padding:0px;margin-top: 5vmin;">
+                        <img src="./img/1101/key.png" class="img-fluid">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" style="border:1px #fff solid;color:white;margin-top: 3vmin;font-size: 4vmin;" id="keyword"></div>
+                </div>
+                <div class="row" style="margin-top: 3vmin;" id="people">
+                    <div class="col-4" style="padding: 0px;">
+                        <img src="./img/1101/man.png" style="height:20vmin" id="people_img">
+                    </div>
+                    <div class="col-8" style="padding: 0px;">
+                        <img src="./img/1101/ad.png" style="height:20vmin">
+                    </div>
+                </div>
+
             </div>
+
         </div>
         <!-- 寶藏相 -->
         <div class="row" style="text-align:center;    margin-top: 10vmin;">
@@ -244,15 +271,74 @@
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $("#art_content").offset().top
                 }, 1000);
-                var url = $(this).attr("file_path");
-                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/' + url+ '.json', function (data) {
-                // $.getJSON('http://localhost:8889/digiasia2018/UDN_S/' + url + '.json', function (data) {
+                var url = $(this).attr("if_url");
+                var ar_num = $(this).attr('file_path');
+
+                // $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (data) {
+                $.getJSON('http://localhost:8889/digiasia2018/UDN_S/one.json', function (data) {
+                    // console.log(data[ar_num].topic_odd);
+                    // var mapping = $.getJSON(
+                    //     'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
+                    //     function (mapp) {
+                    //         // console.log(JSON.stringify(mapp));
+
+                    //         return JSON.stringify(mapp.key);
+                    //     })
+                    var mapping_key;
+                    var mapping_val;
+                    $.ajax({
+                        url: 'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
+                        type: 'GET',
+                        async: false,
+                        error: function (xhr) {
+                            console.log('Ajax request key error');
+                        },
+                        success: function (data) {
+                            mapping_key = data.key;
+                        }
+                    });
+                    $.ajax({
+                        url: 'http://localhost:8889/digiasia2018/UDN_S/mapping_val.json',
+                        type: 'GET',
+                        async: false,
+                        error: function (xhr) {
+                            console.log('Ajax request val error');
+                        },
+                        success: function (data) {
+                            mapping_val = data.val;
+                        }
+                    });
+
+
                     $("#content").text("");
-                    $("#content").text(data.content);
+                    $("#content").append('<iframe src="' + url +
+                        '" style="width:100%;height:100%" frameBorder="0">');
+
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
-                    $("#keyword").text(data.keywords);
+                    $("#keyword").text(data[ar_num].keywords);
                     opacityset('content', 0);
+
+
+                    for (var key in data[ar_num].topic_odd) {
+
+                        var index;
+                        //找出人群陣列的index
+                        for (var x = 0; x < mapping_key.length; x++) {
+                            if (key == mapping_key[x]) {
+                                index = x;
+                            }
+                        }
+
+                        // console.log(mapping_val[index]);
+                        console.log($("#people_img").css('height'))
+
+                        var s ='<div class="row"style="margin-top: 3vmin;"id="people"><div class="col-3" style="padding: 0px;max-width: 26%;"><p class="cf_key_p">'+key+'</p></div><div class="col-3"style="padding: 0px;max-width: 20%;margin-left: 7vmin;"><p class="cf_key_p">'+mapping_val[index][0]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][1]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][2]+'</p></div></div>'
+                          
+                        $(s).insertAfter("#people");
+                    }
+
+
                 })
             });
 
@@ -283,6 +369,8 @@
                 }, 1000);
                 setTimeout(() => {
                     $("#ana_btn").attr("src", "./img/內頁/寶藏-開.png");
+                    $("#keyword_block").css('display', 'block');
+
                     $("#keyword").css('display', 'block');
                     opacityset('keyword', 0);
                 }, 500);

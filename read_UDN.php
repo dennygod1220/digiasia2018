@@ -274,8 +274,8 @@
                 var url = $(this).attr("if_url");
                 var ar_num = $(this).attr('file_path');
 
-                // $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (data) {
-                $.getJSON('http://localhost:8889/digiasia2018/UDN_S/one.json', function (data) {
+                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (data) {
+                // $.getJSON('http://localhost:8889/digiasia2018/UDN_S/one.json', function (data) {
                     // console.log(data[ar_num].topic_odd);
                     // var mapping = $.getJSON(
                     //     'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
@@ -287,7 +287,7 @@
                     var mapping_key;
                     var mapping_val;
                     $.ajax({
-                        url: 'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
+                        url: 'https://events.clickforce.com.tw/digiasia2018/UDN_S/mapping_key.json',
                         type: 'GET',
                         async: false,
                         error: function (xhr) {
@@ -298,7 +298,8 @@
                         }
                     });
                     $.ajax({
-                        url: 'http://localhost:8889/digiasia2018/UDN_S/mapping_val.json',
+                        // url: 'http://localhost:8889/digiasia2018/UDN_S/mapping_val.json',
+                        url: 'https://events.clickforce.com.tw/digiasia2018/UDN_S/mapping_val.json',
                         type: 'GET',
                         async: false,
                         error: function (xhr) {

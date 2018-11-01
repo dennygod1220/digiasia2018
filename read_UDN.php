@@ -372,7 +372,7 @@
                 setTimeout(() => {
                     $("#ana_btn").attr("src", "./img/內頁/寶藏-開.png");
                     $("#keyword_block").css('display', 'block');
-                    $(".append_row").css('display', 'block');
+                    $(".append_row").css('display', 'flex');
 
                     $("#keyword").css('display', 'block');
                     opacityset('keyword', 0);

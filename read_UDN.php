@@ -284,7 +284,7 @@
 
                     //         return JSON.stringify(mapp.key);
                     //     })
-                    console.log($(".append_row"));
+                    console.log($(".append_row")[0]);
                     var mapping_key;
                     var mapping_val;
                     $.ajax({

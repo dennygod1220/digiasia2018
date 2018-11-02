@@ -321,6 +321,13 @@
                     $("#content").append('<iframe id="content_if" src="'+ url +'" style="width:100%;height:100%" frameBorder="0" scrolling="no">');
                     console.log( "height " + $("#content").css('height'));
                     console.log( "width " + $("#content").css('width'));
+                    var if_h = $("#content").css('height');
+                    if_h = if_h.replace("px","");
+                    var if_w = $("#content").css('width');
+                    if_w = if_w.replace("px","");
+                    $("#content_if").attr("width",if_w);
+                    $("#content_if").attr("height",if_h);
+
 
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");

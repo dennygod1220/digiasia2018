@@ -179,7 +179,7 @@
         <!-- 文章內文顯示區 -->
         <div class="card" style="height: 115vmin;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 0px;padding-right: 5vmin;padding-left: 5vmin;padding-top: 2vmin;margin-top: 5vmin;">
 
-            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;">
+            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;overflow: auto;-webkit-overflow-scrolling:touch;">
 
             </div>
         </div>
@@ -318,7 +318,7 @@
 
                     $("#content").text("");
                     // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');
-                    $("#content").append('<iframe id="content_if" src="'+ url +'" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0">');
+                    $("#content").append('<iframe id="content_if" src="'+ url +'" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">');
                     console.log( "height " + $("#content").css('height'));
                     console.log( "width " + $("#content").css('width'));
                     var if_h = $("#content").css('height');

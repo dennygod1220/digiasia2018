@@ -179,7 +179,7 @@
         <!-- 文章內文顯示區 -->
         <div class="card" style="height: 115vmin;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 0px;padding-right: 5vmin;padding-left: 5vmin;padding-top: 2vmin;margin-top: 5vmin;">
 
-            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;overflow: auto;-webkit-overflow-scrolling:touch;">
+            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;-webkit-overflow-scrolling:touch;-webkit-overflow-scrolling: touch;overflow-y: scroll;">
 
             </div>
         </div>

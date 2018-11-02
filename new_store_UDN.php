@@ -8,7 +8,7 @@ $decode = json_decode($json, true);
 
 var_dump($decode);
 
-    $TxtFileName ="UDN_S/one.json";
+    $TxtFileName ="UDN_S/two.json";
 
     //以讀寫方式打寫指定檔案，如果檔案不存則建立
     if (($TxtRes = fopen($TxtFileName, "w ")) === false) {

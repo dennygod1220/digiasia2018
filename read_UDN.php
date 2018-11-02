@@ -372,6 +372,7 @@
                 $("#gold_an").attr('src', './img/內頁/BUTTON-1.png');
             })
             $("#gold_an").click(function () {
+                CHanalysis();
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $("#gold_an").offset().top,
                 }, 1000);

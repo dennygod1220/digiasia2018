@@ -14,6 +14,8 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+
     <script src="./index.js"></script>
 
     <style>
@@ -74,12 +76,12 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-4">
-                <a href="./read_UDN.php">
+                <a href="./read_UDN.php" onclick="chineseBtn()">
                     <img src="./img/index/ch_money.png" class="img-fluid">
                 </a>
             </div>
             <div class="col-4">
-                <a href="./read_NYT.php">
+                <a href="./read_NYT.php" onclick="englishBtn()">
                     <img src="./img/index/en_money.png" class="img-fluid">
                 </a>
             </div>

@@ -325,8 +325,8 @@
                     if_h = if_h.replace("px","");
                     var if_w = $("#content").css('width');
                     if_w = if_w.replace("px","");
-                    $("#content_if").attr("width",if_w);
-                    $("#content_if").attr("height",if_h);
+                    $("#content_if").attr("width",if_w-10);
+                    $("#content_if").attr("height",if_h-20);
 
 
                     $("#keyword").css('display', 'none');

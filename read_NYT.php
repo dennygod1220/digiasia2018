@@ -372,10 +372,10 @@
             })
             //按鈕 hover效果
             $("#gold_an").on('touchstart', function () {
-                $("#gold_an").attr('src', './img/內頁/BUTTON-2.png');
+                $("#gold_an").attr('src', './img/1102_EN/內頁/clickhere_2.png');
             });
             $("#gold_an").on('touchend', function () {
-                $("#gold_an").attr('src', './img/內頁/BUTTON-1.png');
+                $("#gold_an").attr('src', './img/1102_EN/內頁/clickhere_1.png');
             })
             $("#gold_an").click(function () {
                 ENanalysis();

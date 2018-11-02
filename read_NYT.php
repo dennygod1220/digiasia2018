@@ -172,8 +172,6 @@
         <div class="row" style="text-align:center;margin-top:25px">
             <div class="col">
                 <h4 style="color:white;font-size: 6vmin;" id="art_content">內文瀏覽</h4>
-                <h3 style="color:white;" id="url_dis"></h3>
-                <h3 style="color:white;" id="url_title"></h3>
             </div>
         </div>
 
@@ -188,7 +186,7 @@
         <!-- 金幣按鈕_點擊觀看語意分析 -->
         <div class="row" style="text-align:center;margin-top: 10vmin;">
             <div class="col">
-                <img id="gold_an" src="./img/1102_EN/內頁/clickhere_1.png" class="img-fluid" style="width: 45vmin;">
+                <img id="gold_an" src="./img/1102_EN/內頁/clickhere_1.png" class="img-fluid" style="width: 26vmin;">
             </div>
         </div>
         <!-- 關鍵字顯示區 -->
@@ -316,8 +314,6 @@
                     });
 
 
-                    $("#url_dis").text(url);
-                    $("#url_title").text(ar_num);
 
                     $("#content").text("");
                     // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');

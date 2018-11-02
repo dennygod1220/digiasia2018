@@ -172,8 +172,7 @@
         <div class="row" style="text-align:center;margin-top:25px">
             <div class="col">
                 <h4 style="color:white;font-size: 6vmin;" id="art_content">內文瀏覽</h4>
-                <h3 style="color:white;" id="url_dis"></h3>
-                <h3 style="color:white;" id="url_title"></h3>
+
             </div>
         </div>
 
@@ -315,8 +314,7 @@
                     });
 
 
-                    $("#url_dis").text(url);
-                    $("#url_title").text(ar_num);
+
 
                     $("#content").text("");
                     // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');

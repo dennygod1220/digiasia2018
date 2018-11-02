@@ -336,12 +336,11 @@
 
                     if (navigator.userAgent.match(/android/i)) {
                         //如果是Android的話
-                        $("#content").append('<iframe id="content_if" src="' + url +
-                            '" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0">'
-                            var if_h = $("#content").css('height'); if_h = parseInt(if_h.replace(
-                                "px", ""));
-                            var if_w = $("#content").css('width'); if_w = if_w.replace("px",
-                                "");
+                        $("#content").append('<iframe id="content_if" src="' + url +'" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0">');
+                            var if_h = $("#content").css('height'); 
+                            if_h = parseInt(if_h.replace("px", ""));
+                            var if_w = $("#content").css('width'); 
+                            if_w = if_w.replace("px","");
                             $("#content_if").attr("width",if_w);
                             $("#content_if").attr("height",if_h);
                         );

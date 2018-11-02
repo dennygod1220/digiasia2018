@@ -93,9 +93,9 @@
         }
         .cf_key_div{
             padding: 0px;
-            max-width: 20%;
             font-size:2vmin;
-            margin-left: 2vmin;
+            margin-left: 1vmin;
+            max-width: 21%;
         }
     </style>
     <script src="./general/menuicon.js"></script>
@@ -172,6 +172,8 @@
         <div class="row" style="text-align:center;margin-top:25px">
             <div class="col">
                 <h4 style="color:white;font-size: 6vmin;" id="art_content">內文瀏覽</h4>
+                <h3 style="color:white;" id="url_dis"></h3>
+                <h3 style="color:white;" id="url_title"></h3>
             </div>
         </div>
 
@@ -289,6 +291,7 @@
                     var mapping_val;
                     $.ajax({
                         url: 'https://events.clickforce.com.tw/digiasia2018/UDN_S/mapping_key.json',
+                        // url: 'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
                         type: 'GET',
                         async: false,
                         error: function (xhr) {
@@ -311,6 +314,9 @@
                         }
                     });
 
+
+                    $("#url_dis").text(url);
+                    $("#url_title").text(ar_num);
 
                     $("#content").text("");
                     // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');
@@ -335,7 +341,7 @@
                         // console.log(mapping_val[index]);
                         console.log($("#people_img").css('height'))
 
-                        var s ='<div class="row append_row"style="margin-top: 3vmin;display:none"id="people"><div class="col-3" style="padding: 0px;max-width: 26%;"><p class="cf_key_p">'+key+'</p></div><div class="col-3"style="padding: 0px;max-width: 20%;margin-left: 7vmin;"><p class="cf_key_p">'+mapping_val[index][0]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][1]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][2]+'</p></div></div>'
+                        var s ='<div class="row append_row"style="margin-top: 3vmin;display:none"id="people"><div class="col-4" style="padding: 0px;max-width: 29%;"><p class="cf_key_p">'+key+'</p></div><div class="col-3" style="padding: 0px;max-width: 21%;margin-left: 4vmin;"><p class="cf_key_p">'+mapping_val[index][0]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][1]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][2]+'</p></div></div>'
                           
                         $(s).insertAfter("#people");
                     }

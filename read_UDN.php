@@ -325,8 +325,8 @@
                     if_h = parseInt(if_h.replace("px",""))-20;
                     var if_w = $("#content").css('width');
                     if_w = if_w.replace("px","");
-                    // $("#content_if").attr("width",if_w-10);
-                    // $("#content_if").attr("height",if_h);
+                    $("#content_if").attr("width",if_w-10);
+                    $("#content_if").attr("height",if_h);
 
 
                     $("#keyword").css('display', 'none');

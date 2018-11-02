@@ -343,7 +343,6 @@
                             if_w = if_w.replace("px","");
                             $("#content_if").attr("width",if_w);
                             $("#content_if").attr("height",if_h);
-                        );
                     } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
                         //如果是IOS的話
                         $("#content").append('<iframe id="content_if" src="' + url +

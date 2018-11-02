@@ -179,7 +179,7 @@
         <!-- 文章內文顯示區 -->
         <div class="card" style="height: 115vmin;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 0px;padding-right: 5vmin;padding-left: 5vmin;padding-top: 2vmin;margin-top: 5vmin;">
 
-            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;-webkit-overflow-scrolling:touch;-webkit-overflow-scrolling: touch;overflow-y: scroll;">
+            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;">
 
             </div>
         </div>
@@ -267,6 +267,21 @@
     </div>
     <script>
         $(function () {
+
+
+            /*判斷手機系統是Android還是IOS*/
+            if (navigator.userAgent.match(/android/i)) {
+                //如果是Android的話
+
+            } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
+                //如果是IOS的話
+                $("#content").css({
+                    '-webkit-overflow-scrolling':'touch',
+                    'overflow-y': 'scroll'
+                })
+            } else {
+            }
+
             $(".udnbtn").click(function () {
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
                 $([document.documentElement, document.body]).animate({
@@ -275,8 +290,9 @@
                 var url = $(this).attr("if_url");
                 var ar_num = $(this).attr('file_path');
                 $(".append_row").remove();
-                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (data) {
-                // $.getJSON('http://localhost:8889/digiasia2018/UDN_S/one.json', function (data) {
+                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (
+                    data) {
+                    // $.getJSON('http://localhost:8889/digiasia2018/UDN_S/one.json', function (data) {
                     // console.log(data[ar_num].topic_odd);
                     // var mapping = $.getJSON(
                     //     'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
@@ -285,7 +301,7 @@
 
                     //         return JSON.stringify(mapp.key);
                     //     })
-                    
+
                     var mapping_key;
                     var mapping_val;
                     $.ajax({
@@ -318,13 +334,15 @@
 
                     $("#content").text("");
                     // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');
-                    $("#content").append('<iframe id="content_if" src="'+ url +'" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">');
-                    console.log( "height " + $("#content").css('height'));
-                    console.log( "width " + $("#content").css('width'));
+                    $("#content").append('<iframe id="content_if" src="' + url +
+                        '" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
+                    );
+                    console.log("height " + $("#content").css('height'));
+                    console.log("width " + $("#content").css('width'));
                     var if_h = $("#content").css('height');
-                    if_h = parseInt(if_h.replace("px",""))-20;
+                    if_h = parseInt(if_h.replace("px", "")) - 20;
                     var if_w = $("#content").css('width');
-                    if_w = if_w.replace("px","");
+                    if_w = if_w.replace("px", "");
                     // $("#content_if").attr("width",if_w-10);
                     // $("#content_if").attr("height",if_h);
 
@@ -348,8 +366,16 @@
                         // console.log(mapping_val[index]);
                         console.log($("#people_img").css('height'))
 
-                        var s ='<div class="row append_row"style="margin-top: 3vmin;display:none"id="people"><div class="col-4" style="padding: 0px;max-width: 29%;"><p class="cf_key_p">'+key+'</p></div><div class="col-3" style="padding: 0px;max-width: 21%;margin-left: 4vmin;"><p class="cf_key_p">'+mapping_val[index][0]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][1]+'</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">'+mapping_val[index][2]+'</p></div></div>'
-                          
+                        var s =
+                            '<div class="row append_row"style="margin-top: 3vmin;display:none"id="people"><div class="col-4" style="padding: 0px;max-width: 29%;"><p class="cf_key_p">' +
+                            key +
+                            '</p></div><div class="col-3" style="padding: 0px;max-width: 21%;margin-left: 4vmin;"><p class="cf_key_p">' +
+                            mapping_val[index][0] +
+                            '</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">' +
+                            mapping_val[index][1] +
+                            '</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">' +
+                            mapping_val[index][2] + '</p></div></div>'
+
                         $(s).insertAfter("#people");
                     }
 

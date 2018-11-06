@@ -291,9 +291,9 @@
                 }, 1000);
                 var url = $(this).attr("if_url");
                 var ar_num = $(this).attr('file_path');
+               
                 $(".append_row").remove();
-                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (
-                    data) {
+                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (data) {
                     // $.getJSON('http://localhost:8889/digiasia2018/UDN_S/one.json', function (data) {
                     // console.log(data[ar_num].topic_odd);
                     // var mapping = $.getJSON(
@@ -362,6 +362,7 @@
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
                     $("#keyword").text(data[ar_num].keywords);
+                    alert(data[ar_num]);
                     // opacityset('content', 0);
 
 

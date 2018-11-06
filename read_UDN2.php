@@ -104,6 +104,9 @@
 
 <body style="background-color:black">
     <?php include('./general/menu.php');?>
+
+    <?php echo $_SERVER['HTTP_USER_AGENT']  ?>
+    
     <div class="container-fluid">
 
         <?php  include('./general/gold_icon.php'); ?>
@@ -157,15 +160,12 @@
 
                             $title = $json[$file_rand[$x]]->title;
                             $url = $json[$file_rand[$x]]->url;
-                            $id="ifr_".$x;
                             echo "<div class='btn_title'>
-                            <div class='udnbtn' ifid='".$id."' style='height:11vmin;overflow: hidden;color:white;line-height:12vmin;margin-left: 18vmin;font-size: 4vmin;' if_url='".$url."' file_path='".$file_rand[$x]."'>"
+                            <div class='udnbtn' style='height:11vmin;overflow: hidden;color:white;line-height:12vmin;margin-left: 18vmin;font-size: 4vmin;' if_url='".$url."' file_path='".$file_rand[$x]."'>"
                             .$title.
                             "</div>
                             </div>";
                         }
-
-                        
                     ?>
 
                 </ul>
@@ -284,42 +284,7 @@
                 })
             } else {}
 
-
-            // for (var z = 0; z < 5; z++) {
-            //     var x = $(".udnbtn")[z];
-            //     var url = $(x).attr("if_url");
-            //     var id = "ifr_"+z;
-            //     if (navigator.userAgent.match(/android/i)) {
-            //         //如果是Android的話
-            //         $("#content").append('<iframe id="'+ id +'" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" id="content_if" src="' + url +
-            //             '" style="display:none;width:100%;height:100%" frameBorder="0">');
-            //         var if_h = $("#content").css('height');
-            //         if_h = parseInt(if_h.replace("px", ""));
-            //         var if_w = $("#content").css('width');
-            //         if_w = if_w.replace("px", "");
-            //         $("#content_if").attr("width", if_w);
-            //         $("#content_if").attr("height", if_h);
-            //         $("#content").css('background-color', 'white');
-            //     } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
-            //         //如果是IOS的話
-            //         $("#content").append('<iframe id="'+ id +'" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" id="content_if" src="' + url +
-            //             '" style="display:none; width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
-            //         );
-            //         $("#content").css('background-color', 'white');
-
-            //     }
-            // }
-
-
-
-
-
             $(".udnbtn").click(function () {
-                // var id = $(this).attr("ifid");
-                // console.log($(id));
-                // $(id).css("display","inline");
-                $("#content").text("");
-
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $("#art_content").offset().top
@@ -329,8 +294,6 @@
                 $(".append_row").remove();
                 $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (
                     data) {
-
-
                     // $.getJSON('http://localhost:8889/digiasia2018/UDN_S/one.json', function (data) {
                     // console.log(data[ar_num].topic_odd);
                     // var mapping = $.getJSON(
@@ -371,60 +334,33 @@
 
 
 
+                    $("#content").text("");
                     // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');
 
                     if (navigator.userAgent.match(/android/i)) {
                         //如果是Android的話
-                        // $("#content").append('<iframe id="content_if" src="' + url +
-                        //     '" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" style="width:100%;height:100%" frameBorder="0">'
-                        // );
-                        var if_h = $("#content").css('height');
-                        if_h = parseInt(if_h.replace("px", ""));
-                        var if_w = $("#content").css('width');
-                        if_w = if_w.replace("px", "");
-                        // $("#content_if").attr("width", if_w);
-                        // $("#content_if").attr("height", if_h);
-
-
-                        var k = document.createElement('iframe');
-                        k.setAttribute('frameborder', 0);
-                        k.setAttribute('id', 'content_if');
-                        k.setAttribute('height', if_h);
-                        k.setAttribute('width', if_w);
-                        k.setAttribute('sandbox',
-                            "allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock"
-                        );
-                        k.setAttribute('src', "about:blank");
-                        document.getElementById('content').appendChild(k);
-                        $.ajax({
-                            url: url,
-                            type: 'get',
-                            dataType: 'html',
-                            success: function (data) {
-                                console.log(data);
-                                document.getElementById('content_if').contentDocument.write(data);
-                            }
-                        });
-
-
-                        $("#content").css('background-color', 'white');
-
-
+                        $("#content").append('<iframe id="content_if" src="' + url +'" style="width:100%;height:100%" frameBorder="0">');
+                            var if_h = $("#content").css('height'); 
+                            if_h = parseInt(if_h.replace("px", ""));
+                            var if_w = $("#content").css('width'); 
+                            if_w = if_w.replace("px","");
+                            $("#content_if").attr("width",if_w);
+                            $("#content_if").attr("height",if_h);
+                            $("#content").css('background-color','white');
                     } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
                         //如果是IOS的話
                         $("#content").append('<iframe id="content_if" src="' + url +
-                            '" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
+                            '" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
                         );
-                        $("#content").css('background-color', 'white');
+                        $("#content").css('background-color','white');
 
                     }
-
 
 
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
                     $("#keyword").text(data[ar_num].keywords);
-                    opacityset('content', 0);
+                    // opacityset('content', 0);
 
 
                     for (var key in data[ar_num].topic_odd) {
@@ -457,14 +393,14 @@
                 })
             });
 
-            function opacityset(id, num) {
-                if (num < 1) {
-                    $("#" + id).css('opacity', num);
-                    setTimeout(() => {
-                        opacityset(id, num + 0.1);
-                    }, 300);
-                }
-            }
+            // function opacityset(id, num) {
+            //     if (num < 1) {
+            //         $("#" + id).css('opacity', num);
+            //         setTimeout(() => {
+            //             opacityset(id, num + 0.1);
+            //         }, 300);
+            //     }
+            // }
             //點了 start gif 檔後跳轉到 選文章區域
             $("#start_btn").click(function () {
                 $([document.documentElement, document.body]).animate({
@@ -489,7 +425,7 @@
                     $(".append_row").css('display', 'flex');
 
                     $("#keyword").css('display', 'block');
-                    opacityset('keyword', 0);
+                    // opacityset('keyword', 0);
                 }, 500);
             })
         })

@@ -378,10 +378,10 @@
                         // $("#content").append('<iframe id="content_if" src="' + url +
                         //     '" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" style="width:100%;height:100%" frameBorder="0">'
                         // );
-                        // var if_h = $("#content").css('height');
-                        // if_h = parseInt(if_h.replace("px", ""));
-                        // var if_w = $("#content").css('width');
-                        // if_w = if_w.replace("px", "");
+                        var if_h = $("#content").css('height');
+                        if_h = parseInt(if_h.replace("px", ""));
+                        var if_w = $("#content").css('width');
+                        if_w = if_w.replace("px", "");
                         // $("#content_if").attr("width", if_w);
                         // $("#content_if").attr("height", if_h);
 

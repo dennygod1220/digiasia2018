@@ -402,8 +402,7 @@
                             dataType: 'html',
                             success: function (data) {
                                 console.log(data);
-                                document.getElementById('content_if').contentDocument.write(
-                                    data);
+                                document.getElementById('content_if').contentDocument.write(data);
                             }
                         });
 

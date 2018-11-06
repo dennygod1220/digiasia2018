@@ -361,7 +361,7 @@
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
                     $("#keyword").text(data[ar_num].keywords);
-                    opacityset('content', 0);
+                    // opacityset('content', 0);
 
 
                     for (var key in data[ar_num].topic_odd) {

@@ -318,7 +318,8 @@
                 // var id = $(this).attr("ifid");
                 // console.log($(id));
                 // $(id).css("display","inline");
-                
+                $("#content").text("");
+
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $("#art_content").offset().top

@@ -374,7 +374,7 @@
 
                     if (navigator.userAgent.match(/android/i)) {
                         //如果是Android的話
-                        $("#content").append('<iframe id="content_if" src="' + url +'" style="width:100%;height:100%" frameBorder="0">');
+                        $("#content").append('<iframe id="content_if" src="' + url +'" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" style="width:100%;height:100%" frameBorder="0">');
                             var if_h = $("#content").css('height'); 
                             if_h = parseInt(if_h.replace("px", ""));
                             var if_w = $("#content").css('width'); 
@@ -385,7 +385,7 @@
                     } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
                         //如果是IOS的話
                         $("#content").append('<iframe id="content_if" src="' + url +
-                            '" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
+                            '" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
                         );
                         $("#content").css('background-color','white');
 

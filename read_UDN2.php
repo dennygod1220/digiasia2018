@@ -157,8 +157,9 @@
 
                             $title = $json[$file_rand[$x]]->title;
                             $url = $json[$file_rand[$x]]->url;
+                            $id="ifr_".$x;
                             echo "<div class='btn_title'>
-                            <div class='udnbtn' style='height:11vmin;overflow: hidden;color:white;line-height:12vmin;margin-left: 18vmin;font-size: 4vmin;' if_url='".$url."' file_path='".$file_rand[$x]."'>"
+                            <div class='udnbtn' ifid='".$id."' style='height:11vmin;overflow: hidden;color:white;line-height:12vmin;margin-left: 18vmin;font-size: 4vmin;' if_url='".$url."' file_path='".$file_rand[$x]."'>"
                             .$title.
                             "</div>
                             </div>";
@@ -314,7 +315,7 @@
 
 
             $(".udnbtn").click(function () {
-                $(this).css("display","inline");
+                console.log($(this).attr("ifid"));
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $("#art_content").offset().top

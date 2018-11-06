@@ -369,7 +369,6 @@
 
 
 
-                    $("#content").text("");
                     // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');
 
                     // if (navigator.userAgent.match(/android/i)) {

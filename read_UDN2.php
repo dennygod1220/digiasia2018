@@ -314,6 +314,7 @@
 
 
             $(".udnbtn").click(function () {
+                $(this).css("display","inline");
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $("#art_content").offset().top
@@ -323,6 +324,8 @@
                 $(".append_row").remove();
                 $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (
                     data) {
+
+                    
                     // $.getJSON('http://localhost:8889/digiasia2018/UDN_S/one.json', function (data) {
                     // console.log(data[ar_num].topic_odd);
                     // var mapping = $.getJSON(

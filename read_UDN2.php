@@ -362,7 +362,6 @@
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
                     $("#keyword").text(data[ar_num].keywords);
-                    alert(data[ar_num]);
                     // opacityset('content', 0);
 
 

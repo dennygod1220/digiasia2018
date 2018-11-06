@@ -269,20 +269,6 @@
     <script>
         $(function () {
 
-            <?php include("./general/useragent1.php") ?>
-
-
-            // /*判斷手機系統是Android還是IOS*/
-            // if (navigator.userAgent.match(/android/i)) {
-            //     //如果是Android的話
-
-            // } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
-            //     //如果是IOS的話
-            //     $("#content").css({
-            //         '-webkit-overflow-scrolling': 'touch',
-            //         'overflow-y': 'scroll'
-            //     })
-            // } else {}
 
             $(".udnbtn").click(function () {
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
@@ -335,29 +321,7 @@
 
 
                     $("#content").text("");
-                    // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');
-
-
-                    if (navigator.userAgent.match(/android/i)) {
-                        //如果是Android的話
-                        $("#content").append('<iframe id="content_if" src="' + url +
-                            '" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" style="width:100%;height:100%" frameBorder="0">');
-                        var if_h = $("#content").css('height');
-                        if_h = parseInt(if_h.replace("px", ""));
-                        var if_w = $("#content").css('width');
-                        if_w = if_w.replace("px", "");
-                        $("#content_if").attr("width", if_w);
-                        $("#content_if").attr("height", if_h);
-                        $("#content").css('background-color', 'white');
-                    } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
-                        //如果是IOS的話
-                        $("#content").append('<iframe id="content_if" src="' + url +
-                            '" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
-                        );
-                        $("#content").css('background-color', 'white');
-
-                    }
-
+                    $("#content").text(data[ar_num].content);
 
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
@@ -375,8 +339,6 @@
                             }
                         }
 
-                        // console.log(mapping_val[index]);
-                        console.log($("#people_img").css('height'))
 
                         var s =
                             '<div class="row append_row"style="margin-top: 3vmin;display:none"id="people"><div class="col-4" style="padding: 0px;max-width: 29%;"><p class="cf_key_p">' +

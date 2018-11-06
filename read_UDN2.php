@@ -285,39 +285,39 @@
             } else {}
 
 
-            for (var z = 0; z < 5; z++) {
-                var x = $(".udnbtn")[z];
-                var url = $(x).attr("if_url");
-                var id = "ifr_"+z;
-                if (navigator.userAgent.match(/android/i)) {
-                    //如果是Android的話
-                    $("#content").append('<iframe id="'+ id +'" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" id="content_if" src="' + url +
-                        '" style="display:none;width:100%;height:100%" frameBorder="0">');
-                    var if_h = $("#content").css('height');
-                    if_h = parseInt(if_h.replace("px", ""));
-                    var if_w = $("#content").css('width');
-                    if_w = if_w.replace("px", "");
-                    $("#content_if").attr("width", if_w);
-                    $("#content_if").attr("height", if_h);
-                    $("#content").css('background-color', 'white');
-                } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
-                    //如果是IOS的話
-                    $("#content").append('<iframe id="'+ id +'" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" id="content_if" src="' + url +
-                        '" style="display:none; width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
-                    );
-                    $("#content").css('background-color', 'white');
+            // for (var z = 0; z < 5; z++) {
+            //     var x = $(".udnbtn")[z];
+            //     var url = $(x).attr("if_url");
+            //     var id = "ifr_"+z;
+            //     if (navigator.userAgent.match(/android/i)) {
+            //         //如果是Android的話
+            //         $("#content").append('<iframe id="'+ id +'" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" id="content_if" src="' + url +
+            //             '" style="display:none;width:100%;height:100%" frameBorder="0">');
+            //         var if_h = $("#content").css('height');
+            //         if_h = parseInt(if_h.replace("px", ""));
+            //         var if_w = $("#content").css('width');
+            //         if_w = if_w.replace("px", "");
+            //         $("#content_if").attr("width", if_w);
+            //         $("#content_if").attr("height", if_h);
+            //         $("#content").css('background-color', 'white');
+            //     } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
+            //         //如果是IOS的話
+            //         $("#content").append('<iframe id="'+ id +'" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock" id="content_if" src="' + url +
+            //             '" style="display:none; width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
+            //         );
+            //         $("#content").css('background-color', 'white');
 
-                }
-            }
+            //     }
+            // }
 
 
 
 
 
             $(".udnbtn").click(function () {
-                var id = $(this).attr("ifid");
-                console.log($(id));
-                $(id).css("display","inline");
+                // var id = $(this).attr("ifid");
+                // console.log($(id));
+                // $(id).css("display","inline");
                 
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
                 $([document.documentElement, document.body]).animate({
@@ -372,24 +372,24 @@
 
                     // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');
 
-                    // if (navigator.userAgent.match(/android/i)) {
-                    //     //如果是Android的話
-                    //     $("#content").append('<iframe id="content_if" src="' + url +'" style="width:100%;height:100%" frameBorder="0">');
-                    //         var if_h = $("#content").css('height'); 
-                    //         if_h = parseInt(if_h.replace("px", ""));
-                    //         var if_w = $("#content").css('width'); 
-                    //         if_w = if_w.replace("px","");
-                    //         $("#content_if").attr("width",if_w);
-                    //         $("#content_if").attr("height",if_h);
-                    //         $("#content").css('background-color','white');
-                    // } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
-                    //     //如果是IOS的話
-                    //     $("#content").append('<iframe id="content_if" src="' + url +
-                    //         '" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
-                    //     );
-                    //     $("#content").css('background-color','white');
+                    if (navigator.userAgent.match(/android/i)) {
+                        //如果是Android的話
+                        $("#content").append('<iframe id="content_if" src="' + url +'" style="width:100%;height:100%" frameBorder="0">');
+                            var if_h = $("#content").css('height'); 
+                            if_h = parseInt(if_h.replace("px", ""));
+                            var if_w = $("#content").css('width'); 
+                            if_w = if_w.replace("px","");
+                            $("#content_if").attr("width",if_w);
+                            $("#content_if").attr("height",if_h);
+                            $("#content").css('background-color','white');
+                    } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
+                        //如果是IOS的話
+                        $("#content").append('<iframe id="content_if" src="' + url +
+                            '" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
+                        );
+                        $("#content").css('background-color','white');
 
-                    // }
+                    }
 
 
 

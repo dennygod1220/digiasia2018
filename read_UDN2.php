@@ -105,8 +105,6 @@
 <body style="background-color:black">
     <?php include('./general/menu.php');?>
 
-    <?php echo $_SERVER['HTTP_USER_AGENT']  ?>
-
     <div class="container-fluid">
 
         <?php  include('./general/gold_icon.php'); ?>

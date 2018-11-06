@@ -315,7 +315,8 @@
 
 
             $(".udnbtn").click(function () {
-                console.log($(this).attr("ifid"));
+                var id = $(this).attr("ifid");
+                $(id).css('display','inline');
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $("#art_content").offset().top

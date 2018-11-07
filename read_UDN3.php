@@ -341,6 +341,7 @@
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
                     $("#keyword").text(data[ar_num].keywords);
+                    $("#anablock").css('display','none');
 
                     $(".tbtr").remove();
 
@@ -398,6 +399,8 @@
                     $(".append_row").css('display', 'flex');
 
                     $("#keyword").css('display', 'block');
+                    $("#anablock").css('display','block');
+
                     // opacityset('keyword', 0);
                 }, 500);
             })

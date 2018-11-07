@@ -182,7 +182,9 @@
 
         <!-- 文章內文顯示區 -->
         <div class="card" style="height: 115vmin;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 0px;padding-right: 5vmin;padding-left: 5vmin;padding-top: 2vmin;margin-top: 5vmin;">
+            <div class="card" id="from" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF dotted;color:white">
 
+            </div>
             <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;overflow-y: scroll;color:white">
 
             </div>
@@ -295,8 +297,9 @@
                 var ar_num = $(this).attr('file_path');
 
                 $(".append_row").remove();
-                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (data) {
-                // $.getJSON('http://localhost:8888/digiasia2018/UDN_S/one.json', function (data) {
+                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (
+                    data) {
+                    // $.getJSON('http://localhost:8888/digiasia2018/UDN_S/one.json', function (data) {
 
 
                     var mapping_key;
@@ -332,10 +335,13 @@
                     $("#content").text("");
                     $("#content").text(data[ar_num].content);
 
+                    $("#from").text("");
+                    $("#from").text(data[ar_num].from);
+
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
                     $("#keyword").text(data[ar_num].keywords);
-                    
+
                     $(".tbtr").remove();
 
                     for (var key in data[ar_num].topic_odd) {
@@ -348,13 +354,19 @@
                             }
                         }
 
-                        var s = '<tr class="tbtr"><td style="min-height: 50px;"><div style="min-height: 50px;" class="tb_td tb1tr">'+key+'</div></td></tr>';
+                        var s =
+                            '<tr class="tbtr"><td style="min-height: 50px;"><div style="min-height: 50px;" class="tb_td tb1tr">' +
+                            key + '</div></td></tr>';
                         $("#tbl_1").append(s);
 
-                        var k = '<tr class="tbtr"><td style="min-height: 50px;"><div style="min-height: 50px;" class="tb_td">'+mapping_val[index][0]+
-                                '</div></td><td style="min-height: 50px;"><div  style="min-height: 50px;" class="tb_td">'+mapping_val[index][1]+
-                                '</div></td><td  style="min-height: 50px;"><div  style="min-height: 50px;" class="tb_td">'+mapping_val[index][2]+
-                                '</div></td></tr>';
+                        var k =
+                            '<tr class="tbtr"><td style="min-height: 50px;"><div style="min-height: 50px;" class="tb_td">' +
+                            mapping_val[index][0] +
+                            '</div></td><td style="min-height: 50px;"><div  style="min-height: 50px;" class="tb_td">' +
+                            mapping_val[index][1] +
+                            '</div></td><td  style="min-height: 50px;"><div  style="min-height: 50px;" class="tb_td">' +
+                            mapping_val[index][2] +
+                            '</div></td></tr>';
                         $("#tbl_2").append(k);
                     }
 

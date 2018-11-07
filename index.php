@@ -76,7 +76,7 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-4">
-                <a href="./read_UDN.php" onclick="chineseBtn()">
+                <a href="./read_UDN3.php" onclick="chineseBtn()">
                     <img src="./img/index/ch_money.png" class="img-fluid">
                 </a>
             </div>

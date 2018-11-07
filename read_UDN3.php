@@ -336,7 +336,7 @@
                     $("#content").text(data[ar_num].content);
 
                     $("#from").text("");
-                    $("#from").text(data[ar_num].from);
+                    $("#from").text("內文來源: "+data[ar_num].from);
 
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");

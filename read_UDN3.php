@@ -183,7 +183,7 @@
         <!-- 文章內文顯示區 -->
         <div class="card" style="height: 115vmin;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 0px;padding-right: 5vmin;padding-left: 5vmin;padding-top: 2vmin;margin-top: 5vmin;">
 
-            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;">
+            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;overflow-y: scroll;color:white">
 
             </div>
         </div>
@@ -240,7 +240,7 @@
         <!-- 語意分析 商績變業績 -->
         <div class="row" style="text-align:center">
             <div class="col">
-                <p style="color:white;font-size:2vmin">語意分析快速掌握消費者需求 讓商機變業績</p>
+                <p style="color:white;font-size:4vmin">語意分析快速掌握消費者需求 讓商機變業績</p>
             </div>
         </div>
         <!-- 隨身影音 -->
@@ -297,14 +297,7 @@
                 $(".append_row").remove();
                 $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (data) {
                 // $.getJSON('http://localhost:8888/digiasia2018/UDN_S/one.json', function (data) {
-                    // console.log(data[ar_num].topic_odd);
-                    // var mapping = $.getJSON(
-                    //     'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
-                    //     function (mapp) {
-                    //         // console.log(JSON.stringify(mapp));
 
-                    //         return JSON.stringify(mapp.key);
-                    //     })
 
                     var mapping_key;
                     var mapping_val;
@@ -342,6 +335,8 @@
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
                     $("#keyword").text(data[ar_num].keywords);
+                    
+                    $(".tbtr").remove();
 
                     for (var key in data[ar_num].topic_odd) {
 
@@ -353,10 +348,10 @@
                             }
                         }
 
-                        var s = '<tr><td style="min-height: 50px;"><div style="min-height: 50px;" class="tb_td tb1tr">'+key+'</div></td></tr>';
+                        var s = '<tr class="tbtr"><td style="min-height: 50px;"><div style="min-height: 50px;" class="tb_td tb1tr">'+key+'</div></td></tr>';
                         $("#tbl_1").append(s);
 
-                        var k = '<tr><td style="min-height: 50px;"><div style="min-height: 50px;" class="tb_td">'+mapping_val[index][0]+
+                        var k = '<tr class="tbtr"><td style="min-height: 50px;"><div style="min-height: 50px;" class="tb_td">'+mapping_val[index][0]+
                                 '</div></td><td style="min-height: 50px;"><div  style="min-height: 50px;" class="tb_td">'+mapping_val[index][1]+
                                 '</div></td><td  style="min-height: 50px;"><div  style="min-height: 50px;" class="tb_td">'+mapping_val[index][2]+
                                 '</div></td></tr>';

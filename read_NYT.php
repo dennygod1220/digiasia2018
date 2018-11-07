@@ -149,7 +149,7 @@
                             shuffle($rand_array);//調用現成的數組隨機排列函數 
                             return array_slice($rand_array,0,$limit);//截取前$limit個 
                         } 
-                        $file = file_get_contents('UDN_S/one.json');
+                        $file = file_get_contents('NYT_S/one.json');
                         $json = json_decode($file);
 
                         $file_rand = NoRand(0,count($json)-1);
@@ -178,7 +178,7 @@
         <!-- 文章內文顯示區 -->
         <div class="card" style="height: 80vmin;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 0px;padding-right: 5vmin;padding-left: 5vmin;padding-top: 2vmin;margin-top: 5vmin;">
 
-            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;">
+            <div class="card-body" id="content" style="color:white;padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;overflow-y: scroll;">
 
             </div>
         </div>
@@ -190,7 +190,7 @@
             </div>
         </div>
         <!-- 關鍵字顯示區 -->
-        <div class="row" style="margin: 20px 2vmin 0px 2vmin;padding-right:3vmin;padding-left:3vmin;height: 110vmin;"
+        <div class="row" style="margin: 20px 2vmin 0px 2vmin;padding-right:3vmin;padding-left:3vmin;height: 80vmin;"
             id="anablock">
             <div class="container-fluid" id="keyword_block" style="display:none">
                 <div class="row">
@@ -199,15 +199,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" style="border:1px #fff solid;color:white;margin-top: 3vmin;font-size: 4vmin;" id="keyword"></div>
-                </div>
-                <div class="row" style="margin-top: 3vmin;" id="people">
-                    <div class="col-4" style="padding: 0px;">
-                        <img src="./img/1101/man.png" style="height:20vmin" id="people_img">
-                    </div>
-                    <div class="col-8" style="padding: 0px;">
-                        <img src="./img/1101/ad.png" style="height:20vmin">
-                    </div>
+                    <div class="col" style="border:1px #fff solid;color:white;margin-top: 3vmin;font-size: 5vmin;word-break: break-all;" id="keyword"></div>
                 </div>
 
             </div>
@@ -222,7 +214,7 @@
         <!-- 語意分析 商績變業績 -->
         <div class="row" style="text-align:center">
             <div class="col">
-                <p style="color:white;font-size:2vmin">語意分析快速掌握消費者需求 讓商機變業績</p>
+                <p style="color:white;font-size:4vmin">語意分析快速掌握消費者需求 讓商機變業績</p>
             </div>
         </div>
         <!-- 隨身影音 -->
@@ -274,86 +266,23 @@
                 var url = $(this).attr("if_url");
                 var ar_num = $(this).attr('file_path');
                 $(".append_row").remove();
-                $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (
-                    data) {
-                    // $.getJSON('http://localhost:8889/digiasia2018/UDN_S/one.json', function (data) {
-                    // console.log(data[ar_num].topic_odd);
-                    // var mapping = $.getJSON(
-                    //     'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
-                    //     function (mapp) {
-                    //         // console.log(JSON.stringify(mapp));
+                $.getJSON('https://events.clickforce.com.tw/digiasia2018/NYT_S/one.json', function (data) {
+                // $.getJSON('http://localhost:8888/digiasia2018/NYT_S/one.json', function (data) {
 
-                    //         return JSON.stringify(mapp.key);
-                    //     })
-
-                    var mapping_key;
-                    var mapping_val;
-                    $.ajax({
-                        url: 'https://events.clickforce.com.tw/digiasia2018/UDN_S/mapping_key.json',
-                        // url: 'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
-                        type: 'GET',
-                        async: false,
-                        error: function (xhr) {
-                            console.log('Ajax request key error');
-                        },
-                        success: function (data) {
-                            mapping_key = data.key;
-                        }
-                    });
-                    $.ajax({
-                        // url: 'http://localhost:8889/digiasia2018/UDN_S/mapping_val.json',
-                        url: 'https://events.clickforce.com.tw/digiasia2018/UDN_S/mapping_val.json',
-                        type: 'GET',
-                        async: false,
-                        error: function (xhr) {
-                            console.log('Ajax request val error');
-                        },
-                        success: function (data) {
-                            mapping_val = data.val;
-                        }
-                    });
-
-
-
+                    //顯示內文
                     $("#content").text("");
-                    // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');
-                    $("#content").append('<iframe src="' + url +
-                        '" style="width:100%;height:100%" frameBorder="0">');
+                    var content = '';
+                    for(var id in data[ar_num].content){
+                        content = content+data[ar_num].content[id];
+                    }
+                    $("#content").text(content);
 
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
                     $("#keyword").text(data[ar_num].keywords);
-                    opacityset('content', 0);
+                });
 
 
-                    for (var key in data[ar_num].topic_odd) {
-
-                        var index;
-                        //找出人群陣列的index
-                        for (var x = 0; x < mapping_key.length; x++) {
-                            if (key == mapping_key[x]) {
-                                index = x;
-                            }
-                        }
-
-                        // console.log(mapping_val[index]);
-                        console.log($("#people_img").css('height'))
-
-                        var s =
-                            '<div class="row append_row"style="margin-top: 3vmin;display:none"id="people"><div class="col-4" style="padding: 0px;max-width: 29%;"><p class="cf_key_p">' +
-                            key +
-                            '</p></div><div class="col-3" style="padding: 0px;max-width: 21%;margin-left: 4vmin;"><p class="cf_key_p">' +
-                            mapping_val[index][0] +
-                            '</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">' +
-                            mapping_val[index][1] +
-                            '</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">' +
-                            mapping_val[index][2] + '</p></div></div>'
-
-                        $(s).insertAfter("#people");
-                    }
-
-
-                })
             });
 
             function opacityset(id, num) {

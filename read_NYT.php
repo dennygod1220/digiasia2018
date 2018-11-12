@@ -190,9 +190,9 @@
             </div>
         </div>
         <!-- 關鍵字顯示區 -->
-        <div class="row" style="margin: 20px 2vmin 0px 2vmin;padding-right:3vmin;padding-left:3vmin;height: 80vmin;"
+        <div class="row" style="display:none;margin: 20px 2vmin 0px 2vmin;padding-right:3vmin;padding-left:3vmin;height: 80vmin;"
             id="anablock">
-            <div class="container-fluid" id="keyword_block" style="display:none">
+            <div class="container-fluid" id="keyword_block">
                 <div class="row">
                     <div class="col" style="color:white;padding:0px;margin-top: 5vmin;">
                         <img src="./img/1101/key.png" class="img-fluid">
@@ -259,6 +259,7 @@
     <script>
         $(function () {
             $(".udnbtn").click(function () {
+                $("#anablock").css('display', 'none');
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
                 $([document.documentElement, document.body]).animate({
                     scrollTop: $("#art_content").offset().top
@@ -313,7 +314,7 @@
                 }, 1000);
                 setTimeout(() => {
                     $("#ana_btn").attr("src", "./img/內頁/寶藏-開.png");
-                    $("#keyword_block").css('display', 'block');
+                    $("#anablock").css('display', 'block');
                     $(".append_row").css('display', 'flex');
 
                     $("#keyword").css('display', 'block');

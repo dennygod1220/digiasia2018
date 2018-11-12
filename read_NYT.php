@@ -318,7 +318,6 @@
                     $(".append_row").css('display', 'flex');
 
                     $("#keyword").css('display', 'block');
-                    opacityset('keyword', 0);
                 }, 500);
             })
         })

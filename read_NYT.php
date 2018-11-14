@@ -12,7 +12,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        <title>DIGIASIA 2018 語意分析</title>
+    <title>DIGIASIA 2018 語意分析</title>
 
     <script>
         $(function () {
@@ -110,31 +110,37 @@
 
         <div class="row" style="text-align:center;margin-top:5px">
             <div class="col">
-                <h4 style="color:white;font-size: 6vmin;">語意分析說明</h4>
+                <h4 style="color:white;font-size: 6vmin;">Semantic analysis</h4>
             </div>
         </div>
         <div class="row" style="text-align:center;margin-top: 5px;">
             <div class="col">
-                <p style="color:white;">知道一篇文章有多少<span class="yspan">關鍵訊息</span>嗎？</p>
+                <p style="color:white;">Semantic analysis focuses on the key </p>
             </div>
         </div>
         <div class="row" style="text-align:center;">
             <div class="col">
-                <p style="color:white"><span class="yspan">語意分析</span>讓你快速瞭解文章要點，</p>
+                <p style="color:white">messages in the article. It can grasp</p>
             </div>
         </div>
         <div class="row" style="text-align:center;">
             <div class="col">
-                <p style="color:white">掌握<span class="yspan">市場趨勢</span>與消費者<span class="yspan">潛在需求</span>。</p>
+                <p style="color:white">market trends and help understand </p>
             </div>
         </div>
+        <div class="row" style="text-align:center;">
+            <div class="col">
+                <p style="color:white">consumer needs. </p>
+            </div>
+        </div>
+
 
         <?php  include('./general/start.php'); ?>
 
         <!-- 按鈕標頭。 -->
         <div class="row" style="text-align:center;margin-top:25px">
             <div class="col">
-                <h4 style="color:white;font-size: 6vmin;" id="choose_art">選擇有興趣的文章</h4>
+                <h4 style="color:white;font-size: 6vmin;" id="choose_art">Choose your article</h4>
             </div>
         </div>
 
@@ -171,7 +177,7 @@
         <!-- 內文瀏覽標頭 -->
         <div class="row" style="text-align:center;margin-top:25px">
             <div class="col">
-                <h4 style="color:white;font-size: 6vmin;" id="art_content">內文瀏覽</h4>
+                <h4 style="color:white;font-size: 6vmin;" id="art_content">Article browsing</h4>
             </div>
         </div>
 
@@ -199,7 +205,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" style="border:1px #fff solid;color:white;margin-top: 3vmin;font-size: 5vmin;word-break: break-all;" id="keyword"></div>
+                    <div class="col" style="border:1px #fff solid;color:white;margin-top: 3vmin;font-size: 5vmin;word-break: break-all;"
+                        id="keyword"></div>
                 </div>
 
             </div>
@@ -214,7 +221,7 @@
         <!-- 語意分析 商績變業績 -->
         <div class="row" style="text-align:center">
             <div class="col">
-                <p style="color:white;font-size:4vmin">語意分析快速掌握消費者需求 讓商機變業績</p>
+                <p style="color:white;font-size:4vmin">Discover business opportunities</p>
             </div>
         </div>
         <!-- 隨身影音 -->
@@ -228,8 +235,8 @@
         <!-- 同場加映 -->
         <div class="row" style="text-align:center;margin-top: 5vmin;">
             <div class="col">
-                <h4 style="color:white">同場加映</h4>
-                <h4 style="color:white">電信大數據應用</h4>
+                <h4 style="color:white">Adding in the same field</h4>
+                <h4 style="color:white">Telecommunications data</h4>
             </div>
         </div>
         <!-- 比利哥YouTube -->
@@ -242,19 +249,51 @@
         <!-- 公司簡介 -->
         <div class="row" style="text-align:center;margin-top: 5vmin;">
             <div class="col">
-                <h4 style="color:white">公司簡介</h4>
-                <p class="CompanyProfile">域動行銷致力發展數位媒體聯播網絡，</p>
-                <p class="CompanyProfile">專注於數位網路動態發展、</p>
-                <p class="CompanyProfile">洞察媒體趨勢與消費者行為興趣分析。</p>
-                <p class="CompanyProfile">擁有國際化規格之DSP/SSP/DMP廣告系統，</p>
-                <p class="CompanyProfile">透過AI優化引擎Holmes 數位廣告先知核心，</p>
-                <p class="CompanyProfile">全面提升廣告自動優化技術。</p>
-                <p class="CompanyProfile">提供廣告主數位媒體最佳整合行銷方案</p>
+                <h4 style="color:white">Company Profile</h4>
+                <p class="CompanyProfile">Domain Marketing is committed to the development of digital media network,</p>
+                <p class="CompanyProfile">Focus on the dynamic development of digital networks,</p>
+                <p class="CompanyProfile">Insight into media trends and consumer behavior analysis.</p>
+                <p class="CompanyProfile">Internationalized DSP/SSP/DMP advertising system,</p>
+                <p class="CompanyProfile">Through the AI optimization engine Holmes digital advertising prophecy core,</p>
+                <p class="CompanyProfile">Improve the automatic advertising optimization technology.</p>
+                <p class="CompanyProfile">Provide the best integrated marketing solution for advertiser digital media</p>
             </div>
         </div>
 
         <!-- 公司標語 -->
-        <?php include("./general/cf_title.php");?>
+        <div class="row" style="margin-top:10vmin;">
+            <div class="col" style="padding: 0px;background-color: black;color: white;text-align: center;">
+                Select CLICKFORCE to achieve the set goals
+            </div>
+        </div>
+        <div class="row" style="margin-top:-1px;background-color: black;">
+            <div class="col" style="padding: 0px;">
+                <div class="row" style="padding: 0px;">
+                    <div class="col-1" style="padding: 0px;">
+                        <img src="./img/內頁/telephone.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-11" style="color:white;padding: 4px;">
+                        <p style="font-size: 3vmin;">
+                            02-2719-8500(代表線)
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col" style="padding: 0px;">
+                <div class="row" style="padding: 0px;">
+                    <div class="col-1" style="padding: 0px;">
+                        <img src="./img/內頁/black-back-closed-envelope-shape.png" class="img-fluid">
+                    </div>
+                    <div class="col-11" style="color:white;    padding: 4px;">
+                        <p style="font-size: 3vmin;">
+                            service@clickforce.com.tw
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         $(function () {
@@ -267,14 +306,15 @@
                 var url = $(this).attr("if_url");
                 var ar_num = $(this).attr('file_path');
                 $(".append_row").remove();
-                $.getJSON('https://events.clickforce.com.tw/digiasia2018/NYT_S/one.json', function (data) {
-                // $.getJSON('http://localhost:8888/digiasia2018/NYT_S/one.json', function (data) {
+                $.getJSON('https://events.clickforce.com.tw/digiasia2018/NYT_S/one.json', function (
+                    data) {
+                    // $.getJSON('http://localhost:8888/digiasia2018/NYT_S/one.json', function (data) {
 
                     //顯示內文
                     $("#content").text("");
                     var content = '';
-                    for(var id in data[ar_num].content){
-                        content = content+data[ar_num].content[id];
+                    for (var id in data[ar_num].content) {
+                        content = content + data[ar_num].content[id];
                     }
                     $("#content").text(content);
 

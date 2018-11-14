@@ -201,7 +201,7 @@
             <div class="container-fluid" id="keyword_block">
                 <div class="row">
                     <div class="col" style="color:white;padding:0px;margin-top: 5vmin;">
-                        <img src="./img/1101/key.png" class="img-fluid">
+                        <img src="./img/KEYWORDS.png" class="img-fluid">
                     </div>
                 </div>
                 <div class="row">

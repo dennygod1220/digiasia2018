@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=400">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
@@ -12,7 +12,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <title>爬蟲展示頁</title>
+    <title>DIGIASIA 2018 語意分析</title>
 
     <script>
         $(function () {
@@ -97,6 +97,9 @@
             margin-left: 1vmin;
             max-width: 21%;
         }
+        .tb_td{
+            border: 1px #fff solid;
+        }
     </style>
     <script src="./general/menuicon.js"></script>
 
@@ -104,6 +107,7 @@
 
 <body style="background-color:black">
     <?php include('./general/menu.php');?>
+
     <div class="container-fluid">
 
         <?php  include('./general/gold_icon.php'); ?>
@@ -178,8 +182,10 @@
 
         <!-- 文章內文顯示區 -->
         <div class="card" style="height: 115vmin;overflow-y: scroll;background-color:rgba(1,1,1,0);border: 0px;padding-right: 5vmin;padding-left: 5vmin;padding-top: 2vmin;margin-top: 5vmin;">
+            <div class="card" id="from" style="padding:2vmin;background-color:rgba(1,1,1,0);border: 1px #FFF dotted;color:white">
 
-            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;">
+            </div>
+            <div class="card-body" id="content" style="padding:2vmin;height:100%;background-color:rgba(1,1,1,0);border: 1px #FFF solid;overflow-y: scroll;color:white">
 
             </div>
         </div>
@@ -211,6 +217,19 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-4" style="padding:0px" id="tbl_1_block">
+                        <table id="tbl_1" style="color: white;border-collapse:separate; border-spacing:0px 10px;word-break: break-all;">
+                        </table>
+                    </div>
+                    <div class="col-8" style="padding:0px">
+                        <table id="tbl_2" style="color: white;padding: 0px 0px 0px 0px;border-collapse:separate; border-spacing:5px 10px;word-break: break-all;">
+
+                        </table>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
@@ -223,7 +242,7 @@
         <!-- 語意分析 商績變業績 -->
         <div class="row" style="text-align:center">
             <div class="col">
-                <p style="color:white;font-size:2vmin">語意分析快速掌握消費者需求 讓商機變業績</p>
+                <p style="color:white;font-size:4vmin">語意分析快速掌握消費者需求 讓商機變業績</p>
             </div>
         </div>
         <!-- 隨身影音 -->
@@ -269,18 +288,6 @@
         $(function () {
 
 
-            /*判斷手機系統是Android還是IOS*/
-            if (navigator.userAgent.match(/android/i)) {
-                //如果是Android的話
-
-            } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
-                //如果是IOS的話
-                $("#content").css({
-                    '-webkit-overflow-scrolling': 'touch',
-                    'overflow-y': 'scroll'
-                })
-            } else {}
-
             $(".udnbtn").click(function () {
                 $("#ana_btn").attr("src", "./img/內頁/寶藏-關.png");
                 $([document.documentElement, document.body]).animate({
@@ -288,24 +295,18 @@
                 }, 1000);
                 var url = $(this).attr("if_url");
                 var ar_num = $(this).attr('file_path');
+
                 $(".append_row").remove();
                 $.getJSON('https://events.clickforce.com.tw/digiasia2018/UDN_S/one.json', function (
                     data) {
-                    // $.getJSON('http://localhost:8889/digiasia2018/UDN_S/one.json', function (data) {
-                    // console.log(data[ar_num].topic_odd);
-                    // var mapping = $.getJSON(
-                    //     'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
-                    //     function (mapp) {
-                    //         // console.log(JSON.stringify(mapp));
+                    // $.getJSON('http://localhost:8888/digiasia2018/UDN_S/one.json', function (data) {
 
-                    //         return JSON.stringify(mapp.key);
-                    //     })
 
                     var mapping_key;
                     var mapping_val;
                     $.ajax({
                         url: 'https://events.clickforce.com.tw/digiasia2018/UDN_S/mapping_key.json',
-                        // url: 'http://localhost:8889/digiasia2018/UDN_S/mapping_key.json',
+                        // url: 'http://localhost:8888/digiasia2018/UDN_S/mapping_key.json',
                         type: 'GET',
                         async: false,
                         error: function (xhr) {
@@ -316,7 +317,7 @@
                         }
                     });
                     $.ajax({
-                        // url: 'http://localhost:8889/digiasia2018/UDN_S/mapping_val.json',
+                        // url: 'http://localhost:8888/digiasia2018/UDN_S/mapping_val.json',
                         url: 'https://events.clickforce.com.tw/digiasia2018/UDN_S/mapping_val.json',
                         type: 'GET',
                         async: false,
@@ -332,37 +333,17 @@
 
 
                     $("#content").text("");
-                    // $("#content").append('<iframe src="https://events.clickforce.com.tw/digiasia2018/test.php?url=' + url +'" style="width:100%;height:100%" frameBorder="0">');
+                    $("#content").text(data[ar_num].content);
 
-                    if (navigator.userAgent.match(/android/i)) {
-                        //如果是Android的話
-                        $("#content").append('<iframe id="content_if" src="' + url +'" style="width:100%;height:100%" frameBorder="0">');
-                            var if_h = $("#content").css('height'); 
-                            if_h = parseInt(if_h.replace("px", ""));
-                            var if_w = $("#content").css('width'); 
-                            if_w = if_w.replace("px","");
-                            $("#content_if").attr("width",if_w);
-                            $("#content_if").attr("height",if_h);
-                            $("#content").css('background-color','white');
-                    } else if (navigator.userAgent.match(/(iphone|ipad|ipod);?/i)) {
-                        //如果是IOS的話
-                        $("#content").append('<iframe id="content_if" src="' + url +
-                            '" style="width: 1px; min-width: 100%;*width: 100%;" frameBorder="0" scrolling="no">'
-                        );
-                        $("#content").css('background-color','white');
-
-                    }
-
-                    console.log("height " + $("#content").css('height'));
-                    console.log("width " + $("#content").css('width'));
-
-
+                    $("#from").text("");
+                    $("#from").text("內文來源: "+data[ar_num].from);
 
                     $("#keyword").css('display', 'none');
                     $("#keyword").text("");
                     $("#keyword").text(data[ar_num].keywords);
-                    // opacityset('content', 0);
+                    $("#anablock").css('display','none');
 
+                    $(".tbtr").remove();
 
                     for (var key in data[ar_num].topic_odd) {
 
@@ -374,34 +355,26 @@
                             }
                         }
 
-                        // console.log(mapping_val[index]);
-                        console.log($("#people_img").css('height'))
-
                         var s =
-                            '<div class="row append_row"style="margin-top: 3vmin;display:none"id="people"><div class="col-4" style="padding: 0px;max-width: 29%;"><p class="cf_key_p">' +
-                            key +
-                            '</p></div><div class="col-3" style="padding: 0px;max-width: 21%;margin-left: 4vmin;"><p class="cf_key_p">' +
-                            mapping_val[index][0] +
-                            '</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">' +
-                            mapping_val[index][1] +
-                            '</p></div><div class="col-3 cf_key_div"><p class="cf_key_p">' +
-                            mapping_val[index][2] + '</p></div></div>'
+                            '<tr class="tbtr"><td style="min-height: 50px;"><div style="min-height: 50px;" class="tb_td tb1tr">' +
+                            key + '</div></td></tr>';
+                        $("#tbl_1").append(s);
 
-                        $(s).insertAfter("#people");
+                        var k =
+                            '<tr class="tbtr"><td style="min-height: 50px;"><div style="min-height: 50px;" class="tb_td">' +
+                            mapping_val[index][0] +
+                            '</div></td><td style="min-height: 50px;"><div  style="min-height: 50px;" class="tb_td">' +
+                            mapping_val[index][1] +
+                            '</div></td><td  style="min-height: 50px;"><div  style="min-height: 50px;" class="tb_td">' +
+                            mapping_val[index][2] +
+                            '</div></td></tr>';
+                        $("#tbl_2").append(k);
                     }
 
 
                 })
             });
 
-            function opacityset(id, num) {
-                if (num < 1) {
-                    $("#" + id).css('opacity', num);
-                    setTimeout(() => {
-                        opacityset(id, num + 0.1);
-                    }, 300);
-                }
-            }
             //點了 start gif 檔後跳轉到 選文章區域
             $("#start_btn").click(function () {
                 $([document.documentElement, document.body]).animate({
@@ -426,7 +399,9 @@
                     $(".append_row").css('display', 'flex');
 
                     $("#keyword").css('display', 'block');
-                    opacityset('keyword', 0);
+                    $("#anablock").css('display','block');
+
+                    // opacityset('keyword', 0);
                 }, 500);
             })
         })

@@ -80,8 +80,8 @@
         }
         .CompanyProfile{
             color:white;
-            margin-top:2vmin;
-            font-size: 3vmin;
+            margin-top:3vmin;
+            font-size: 4vmin;
         }
         .cf_key_p{
             padding: 0px;

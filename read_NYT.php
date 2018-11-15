@@ -110,7 +110,7 @@
 
         <div class="row" style="text-align:center;margin-top:5px">
             <div class="col">
-                <h4 style="color:white;font-size: 6vmin;">Semantic analysis</h4>
+                <h4 style="color:white;font-size: 6vmin;">Semantic Analysis</h4>
             </div>
         </div>
         <div class="row" style="text-align:center;margin-top: 5px;">
